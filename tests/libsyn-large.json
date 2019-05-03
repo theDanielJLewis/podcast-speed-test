@@ -1,0 +1,14 @@
+{
+    "label": "Libsyn large",
+    "file": "tii",
+    "tests": [
+        {
+            "label": "Libsyn",
+            "url": "https://tii.libsyn.com/rss"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/tii"
+        }
+    ]
+}

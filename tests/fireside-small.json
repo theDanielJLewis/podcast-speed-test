@@ -1,0 +1,17 @@
+{
+    "label": "Fireside small",
+    "tests": [
+        {
+            "label": "Fireside",
+            "url": "https://sfspodcast.fireside.fm/rss"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/fireside-small"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/fireside-small"
+        }
+    ]
+}

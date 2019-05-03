@@ -1,0 +1,18 @@
+{
+    "label": "Simplecast small",
+    "file": "simplecast",
+    "tests": [
+        {
+            "label": "Simplecast",
+            "url": "https://feeds.simplecast.com/ttZto1k6"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/DisabilityAfterDark"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/ttZto1k6"
+        }
+    ]
+}

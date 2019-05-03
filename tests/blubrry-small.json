@@ -1,0 +1,18 @@
+{
+    "label": "Blubrry small",
+    "file": "blubrry",
+    "tests": [
+        {
+            "label": "Blubrry",
+            "url": "https://feeds.blubrry.com/feeds/52716.xml"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/blubrry-small"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/blubrry-small"
+        }
+    ]
+}

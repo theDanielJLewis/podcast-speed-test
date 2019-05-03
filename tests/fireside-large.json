@@ -1,0 +1,14 @@
+{
+    "label": "Fireside large",
+    "file": "fireside",
+    "tests": [
+        {
+            "label": "Fireside",
+            "url": "https://feeds.fireside.fm/beyondthetodolist/rss"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/bttdltest"
+        }
+    ]
+}

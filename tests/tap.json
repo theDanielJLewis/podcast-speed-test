@@ -1,0 +1,21 @@
+{
+    "label": "PowerPress (TAP)",
+    "tests": [
+        {
+            "label": "Liquid Web PowerPress",
+            "url": "https://theaudacitytopodcast.com/feed/podcast/?redirect=no"
+        },
+        {
+            "label": "Flywheel PowerPress",
+            "url": "https://theaudacitytopodcast.flywheelsites.com/feed/podcast/?redirect=no"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/TheAudacitytoPodcast-mp3"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/theaudacitytopodcast"
+        }
+    ]
+}

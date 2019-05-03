@@ -1,0 +1,18 @@
+{
+    "label": "Podbean small",
+    "file": "podbean",
+    "tests": [
+        {
+            "label": "Podbean",
+            "url": "https://feed.podbean.com/robbell/feed.xml"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/robcasttest"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/robcasttest"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "label": "Blubrry big",
+    "file": "blubrry-large",
+    "tests": [
+        {
+            "label": "Blubrry",
+            "url": "http://sprocketpodcast.blubrry.com/feed/podcast/"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/blubrry-big"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "label": "Buzzsprout small",
+    "tests": [
+        {
+            "label": "Buzzsprout",
+            "url": "https://feeds.buzzsprout.com/24669.rss"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/buzzsprout-small"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/buzzsprout-small"
+        }
+    ]
+}

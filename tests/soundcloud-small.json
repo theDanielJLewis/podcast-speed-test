@@ -1,0 +1,18 @@
+{
+    "label": "SoundCloud small",
+    "file": "soundcloud",
+    "tests": [
+        {
+            "label": "Soundcloud",
+            "url": "https://feeds.soundcloud.com/users/soundcloud:users:173288648/sounds.rss"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/soundcloud-test"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/173288648"
+        }
+    ]
+}

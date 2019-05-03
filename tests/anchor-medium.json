@@ -1,0 +1,13 @@
+{
+    "label": "Anchor",
+    "tests": [
+        {
+            "label": "Anchor medium",
+            "url": "https://anchor.fm/s/1265ab0/podcast/rss"
+        },
+        {
+            "label": "Podcast Mirror medium",
+            "url": "https://feeds.podcastmirror.com/anchor-medium"
+        }
+    ]
+}

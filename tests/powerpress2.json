@@ -1,0 +1,17 @@
+{
+  "label": "PowerPress",
+  "tests": [
+    {
+      "label": "Liquid Web PowerPress",
+      "url": "https://cleancomedypodcast.com/feed/podcast"
+    },
+    {
+      "label": "FeedBurner",
+      "url": "https://feeds.feedburner.com/theRamenNoodle"
+    },
+    {
+      "label": "Podcast Mirror",
+      "url": "https://feeds.podcastmirror.com/theramennoodle"
+    }
+  ]
+}

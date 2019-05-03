@@ -1,0 +1,41 @@
+{
+  "label": "PowerPress",
+  "tests": [
+    {
+      "label": "SSD Nodes (SpinupWP) PowerPress",
+      "url": "https://ssdnodes.cleancomedypodcast.com/feed/podcast"
+    },
+    {
+      "label": "SSD Nodes (WP Rocket) PowerPress",
+      "url": "https://ssdnodes2.cleancomedypodcast.com/feed/podcast"
+    },
+    {
+      "label": "Vultr (SpinupWP) PowerPress",
+      "url": "https://vultr.cleancomedypodcast.com/feed/podcast"
+    },
+    {
+      "label": "Vultr (WP Rocket) PowerPress",
+      "url": "https://vultr2.cleancomedypodcast.com/feed/podcast"
+    },
+    {
+      "label": "Liquid Web PowerPress",
+      "url": "https://cleancomedypodcast.com/feed/podcast"
+    },
+    {
+      "label": "Flywheel PowerPress",
+      "url": "https://cleancomedypodcast.flywheelsites.com/feed/podcast"
+    },
+    {
+      "label": "Podcast Mirror",
+      "url": "https://feeds.podcastmirror.com/theRamenNoodle"
+    },
+    {
+      "label": "FeedBurner CNAME",
+      "url": "http://feeds.noodle.mx/theRamenNoodle"
+    },
+    {
+      "label": "FeedBurner HTTPS",
+      "url": "https://feeds.feedburner.com/theRamenNoodle"
+    }
+  ]
+}

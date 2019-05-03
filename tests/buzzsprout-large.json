@@ -1,0 +1,14 @@
+{
+    "label": "Buzzsprout larg",
+    "file": "buzzsprout-big",
+    "tests": [
+        {
+            "label": "Buzzsprout",
+            "url": "https://feeds.buzzsprout.com/16394.rss"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/buzzsprout-big"
+        }
+    ]
+}

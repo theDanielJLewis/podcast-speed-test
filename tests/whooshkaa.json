@@ -1,0 +1,18 @@
+{
+    "label": "Whooshkaa small",
+    "file": "whooshkaa",
+    "tests": [
+        {
+            "label": "Whooshkaa",
+            "url": "https://rss.whooshkaa.com/rss/podcast/id/6869"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/whooshkaa-test"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/whooshkaa-test"
+        }
+    ]
+}

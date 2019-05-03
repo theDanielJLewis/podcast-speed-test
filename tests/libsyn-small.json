@@ -1,0 +1,18 @@
+{
+    "label": "Libsyn small",
+    "file": "libsyn",
+    "tests": [
+        {
+            "label": "Libsyn",
+            "url": "https://podcast411.libsyn.com/rss"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/libsyn/tsTU"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/podcast411"
+        }
+    ]
+}
