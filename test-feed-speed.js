@@ -30,7 +30,8 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
         results: []
     };
 
-    async.eachLimit(testSettings.tests, 1, (url, eachCallback) => {
+    async.timesLimit(testSettings.tests.length, 1, (test, eachCallback) => {
+        let url = testSettings.tests[test];
         console.log('Testing',url.label,'...');
         url.runResults = [];
         if (http2) url.runResultsHttp2 = [];
@@ -45,9 +46,13 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                     // url.median = median(url.runResults);
                     if (index === 0 ) {
                         url.bytes = body.length;
-                        if (! gzip) {
-                            url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
-                            if (addLabel) url.label += labelAppend;
+                        if (addLabel) url.label += labelAppend;
+                        // if (! gzip) {
+                        //     url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
+                        // }
+                        // if ()
+                        if ( test === 0 ) {
+                            testResults.bytes = url.bytes;
                         }
                     }
                     
@@ -55,8 +60,11 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                         request(url.url, { ...reqOptions, disableHttp2: true, gzip: true }, (error, response, body) => {
                             if (index === 0 ) {
                                 url.bytesGzip = response.headers['content-length'] || gzipSize.sync(body);
-                                url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
-                                if (addLabel) url.label += labelAppend;
+                                // url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
+                                // if (addLabel) url.label += labelAppend;
+                                if ( test === 0 ) {
+                                    testResults.bytesGzip = url.bytesGzip;
+                                }        
                             }        
                             if (error) {
                                 // console.log(error);

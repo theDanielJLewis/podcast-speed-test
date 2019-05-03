@@ -113,7 +113,9 @@ async function createChart(testResults, benchmarkResults) {
     } else {
         var chartData = [averages, medians, bMedian];
     }
-    
+    let testKb = Math.round(testResults.bytes / 1024 * 10) / 10;
+    let testKbGzip = Math.round(testResults.bytesGzip / 1024 * 10) / 10;
+
     var layout = {
         autosize: true,
         // autosize: false,
@@ -126,7 +128,7 @@ async function createChart(testResults, benchmarkResults) {
         // //   t: 100,
         //   pad: 0
         // },      
-        title: `${testResults.title} feed loading time (${runs} runs)`,
+        title: `${testResults.title} feed loading time (${runs} runs)<br>Source: ${testKb} KB uncompressed`,
         barmode: "group",
         xaxis: {
             title: 'Feed source',
@@ -148,6 +150,9 @@ async function createChart(testResults, benchmarkResults) {
             showticklabels: false        
         }
     };
+
+    if (gzip) layout.title +=  ` / ${testKbGzip} KB Gzip`;
+
     var graphOptions = {layout: layout, filename: testResults.file || test, fileopt};
     plotly.plot(chartData, graphOptions, function (err, msg) {
         if (err) console.log(err.body);
