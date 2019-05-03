@@ -20,7 +20,7 @@ node test-feed-speed.js --gzip --runs=5 --chart --test=tap
 
 `--runs=[number]` Enter the number of times to run the test on each URL. Default 10.
 
-`--chart` Output the resulting comparison data to Plotly. This requires a Plotly username and API key (see below).
+`--chart` Chart the resulting averages and medians data to Plotly. This requires a Plotly username and API key (see below). Optionally add value `average` or `median` to chart only that calculation. Default includes both. 
 
 `--gzip` Run an additional batch of times (same number of times as `--runs`) with gzip compression enabled.
 

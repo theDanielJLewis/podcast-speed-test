@@ -12,7 +12,9 @@ if ( argv['append'] ) {
 } else {
     var fileopt = 'overwrite';
 }
-
+let chart = argv['chart'];
+if ( chart == 'average' || chart == 'averages' || chart == true ) var chartAverage = true;
+if ( chart == 'median' || chart == 'medians' || chart == true ) var chartMedian = true;
 
 async function createChart(testResults, benchmarkResults) {
     try {
@@ -55,64 +57,92 @@ async function createChart(testResults, benchmarkResults) {
     }
 
     if (verbose) console.log(data);
+    let chartData = new Array;
 
-    var averages = {
-        x: data.labels,
-        y: data.averages,
-        name: "Average",
-        type: "bar"
-    };
-    var medians = {
-        x: data.labels,
-        y: data.medians,
-        name: "Median",
-        type: "bar"
-    };
-    var bMedian = {
-        x: data.labels,
-        y: benchmarkResults.medians,
-        name: "% of Median Benchmark",
-        yaxis: "y2",
-        type: "line"
-    };
-    if (http2) {
-        var averagesHttp2 = {
+    if ( chartAverage ) {
+        var averages = {
             x: data.labels,
-            y: data.averagesHttp2,
-            name: "HTTP/2 Average",
+            y: data.averages,
+            marker: {color: "rgb(0,0,125)"},
+            name: "Average",
             type: "bar"
         };
-        var mediansHttp2 = {
+        chartData.push(averages);
+    }
+    if ( chartMedian ) {
+        var medians = {
             x: data.labels,
-            y: data.mediansHttp2,
-            name: "HTTP/2 Median",
+            y: data.medians,
+            marker: {color: "rgb(0,0,175)"},
+            name: "Median",
             type: "bar"
         };
-        var chartData = [averages, medians, averagesHttp2, mediansHttp2];
-    } else if (gzip) {
+        var bMedian = {
+            x: data.labels,
+            y: benchmarkResults.medians,
+            marker: {color: "rgb(0,0,225)"},
+            name: "% of Median Benchmark",
+            yaxis: "y2",
+            type: "line"
+        };
+        chartData.push(medians, bMedian);
+    }
+
+    if (gzip) {
+        if ( chartAverage ) {
             var averagesGzip = {
                 x: data.labels,
                 y: data.averagesGzip,
+                marker: {color: "rgb(0,125,0)"},
                 name: "Gzip Average",
                 type: "bar"
             };
+            chartData.push(averagesGzip);
+        }
+        if ( chartMedian ) {
             var mediansGzip = {
                 x: data.labels,
                 y: data.mediansGzip,
+                marker: {color: "rgb(0,175,0)"},
                 name: "Gzip Median",
                 type: "bar"
             };
             var bMedianGzip = {
                 x: data.labels,
                 y: benchmarkResults.gzipMedians,
+                marker: {color: "rgb(0,225,0)"},
                 name: "% of Gzip Median Benchmark",
                 yaxis: "y2",
                 type: "line"
             };        
-            var chartData = [averages, medians, averagesGzip, mediansGzip, bMedian,bMedianGzip];
-    } else {
-        var chartData = [averages, medians, bMedian];
+            chartData.push(mediansGzip, bMedianGzip);
+        }
     }
+
+    if (http2) {
+        if ( chartAverage ) {
+            var averagesHttp2 = {
+                x: data.labels,
+                y: data.averagesHttp2,
+                marker: {color: "rgb(125,0,0)"},
+                name: "HTTP/2 Average",
+                type: "bar"
+            };
+            chartData.push(averagesHttp2);
+        }
+        if ( chartMedian ) {
+            var mediansHttp2 = {
+                x: data.labels,
+                y: data.mediansHttp2,
+                marker: {color: "rgb(175,0,0)"},
+                name: "HTTP/2 Median",
+                type: "bar"
+            };
+            chartData.push(mediansHttp2);
+        }
+    }
+
+
     let testKb = Math.round(testResults.bytes / 1024 * 10) / 10;
     let testKbGzip = Math.round(testResults.bytesGzip / 1024 * 10) / 10;
 
