@@ -5,9 +5,14 @@ let runs = argv['runs'] || 10;
 let test = argv['test'];
 
 async function createChart(testResults, benchmarkResults) {
-    const plotlyCreds = await jsonFile.readFile('./plotly-creds.json');
-    const plotlyUsername = process.env.plotlyUsername || plotlyCreds.username;
-    const plotlyApi = process.env.plotlyApi || plotlyCreds.api;
+    try {
+        const plotlyCreds = await jsonFile.readFile('./plotly-creds.json');
+        plotlyUsername = plotlyCreds.username;
+        plotlyApi = plotlyCreds.api;        
+    } catch (error) {
+        plotlyUsername = process.env.plotlyUsername;
+        plotlyApi = process.env.plotlyApi;                
+    }
     const plotly = require('plotly')(plotlyUsername, plotlyApi);
     
     console.log('Preparing chart...');

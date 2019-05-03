@@ -1,20 +1,17 @@
 {
-  "name": "url-speed-test",
+  "name": "test-feed-speed",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test the speed an RSS feed. This is ideal for raw server speed testing, as it loads only the data at the URL, not any of the embeds or links.",
   "main": "testurl.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Daniel J. Lewis",
   "license": "ISC",
   "dependencies": {
     "argv": "0.0.2",
     "async": "^2.6.2",
     "bottleneck": "^2.18.0",
-    "canvas": "^2.4.1",
-    "chart.js": "^2.8.0",
-    "chartjs-node-canvas": "^2.3.0",
     "express": "^4.16.4",
     "gzip-size": "^5.1.0",
     "h2-request": "^1.1.1",
@@ -26,5 +23,25 @@
     "plotly": "^1.0.6",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theDanielJLewis/test-feed-speed.git"
+  },
+  "keywords": [
+    "podcast",
+    "RSS",
+    "feed",
+    "performance",
+    "speed",
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/theDanielJLewis/test-feed-speed/issues"
+  },
+  "homepage": "https://github.com/theDanielJLewis/test-feed-speed#readme"
 }
