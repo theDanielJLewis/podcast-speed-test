@@ -7,6 +7,12 @@ let test = argv['test'] || 'demo';
 if ( argv['v'] || argv['verbose'] ) var verbose = true;
 if ( argv['http2'] ) var http2 = true;
 if ( argv['gzip'] || argv['compression'] ) var gzip = true;
+if ( argv['append'] ) {
+    var append = true;
+    var fileopt = 'extend';
+} else {
+    var fileopt = 'overwrite';
+}
 
 
 async function createChart(testResults, benchmarkResults) {
@@ -50,21 +56,30 @@ async function createChart(testResults, benchmarkResults) {
     }
 
     if (verbose) console.log(data);
+
+    if (append) {
+        for (const key in data.labels) {
+            data.labels[key] += ' Remote';
+        }
+    }
     
     var averages = {
-        x: data.labels,
+        // x: data.labels,
+        x: ['Libsyn2','FeedBurner2','Podcast Mirror2'],
         y: data.averages,
         name: "Average",
         type: "bar"
     };
     var medians = {
-        x: data.labels,
+        // x: data.labels,
+        x: ['Libsyn2','FeedBurner2','Podcast Mirror2'],
         y: data.medians,
         name: "Median",
         type: "bar"
     };
     var bMedian = {
-        x: data.labels,
+        // x: data.labels,
+        x: ['Libsyn2','FeedBurner2','Podcast Mirror2'],
         y: benchmarkResults.medians,
         name: "% of Median Benchmark",
         yaxis: "y2",
@@ -143,7 +158,7 @@ async function createChart(testResults, benchmarkResults) {
             showticklabels: false        
         }
     };
-    var graphOptions = {layout: layout, filename: testResults.file || test, fileopt: "overwrite"};
+    var graphOptions = {layout: layout, filename: testResults.file || test, fileopt};
     plotly.plot(chartData, graphOptions, function (err, msg) {
         if (err) console.log(err.body);
 

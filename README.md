@@ -28,6 +28,8 @@ node test-feed-speed.js --gzip --runs=5 --chart --test=tap
 
 `--v` or `--verbose` Display verbose data in the console.
 
+`--append` Used with `--chart`, this will perform the same tests and append them to the existing data with "Remote" appended to the labels. This is intended for testing loading speed from a remote location (like a VPS).
+
 ## JSON test formats
 
 Use one of the included test files, or make your own in the following format.
