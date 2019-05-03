@@ -45,8 +45,10 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                     // url.median = median(url.runResults);
                     if (index === 0 ) {
                         url.bytes = body.length;
-                        url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
-                        if (addLabel) url.label += labelAppend;
+                        if (! gzip) {
+                            url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
+                            if (addLabel) url.label += labelAppend;
+                        }
                     }
                     
                     if (gzip) {
