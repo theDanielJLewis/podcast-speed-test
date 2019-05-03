@@ -64,22 +64,19 @@ async function createChart(testResults, benchmarkResults) {
     }
     
     var averages = {
-        // x: data.labels,
-        x: ['Libsyn2','FeedBurner2','Podcast Mirror2'],
+        x: data.labels,
         y: data.averages,
         name: "Average",
         type: "bar"
     };
     var medians = {
-        // x: data.labels,
-        x: ['Libsyn2','FeedBurner2','Podcast Mirror2'],
+        x: data.labels,
         y: data.medians,
         name: "Median",
         type: "bar"
     };
     var bMedian = {
-        // x: data.labels,
-        x: ['Libsyn2','FeedBurner2','Podcast Mirror2'],
+        x: data.labels,
         y: benchmarkResults.medians,
         name: "% of Median Benchmark",
         yaxis: "y2",
