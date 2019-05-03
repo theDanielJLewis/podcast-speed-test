@@ -41,13 +41,14 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                     // url.median = median(url.runResults);
                     if (index === 0 ) {
                         url.bytes = body.length;
+                        url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
                     }
                     
                     if (gzip) {
                         request(url.url, { ...reqOptions, disableHttp2: true, gzip: true }, (error, response, body) => {
                             if (index === 0 ) {
                                 url.bytesGzip = response.headers['content-length'] || gzipSize.sync(body);
-                                url.label = `${url.label}<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
+                                url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
                             }        
                             if (error) {
                                 // console.log(error);
