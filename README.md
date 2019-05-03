@@ -24,9 +24,11 @@ node test-feed-speed.js --gzip --runs=5 --chart --test=tap
 
 `--gzip` Run an additional batch of times (same number of times as `--runs`) with gzip compression enabled.
 
-`--test=[name]` Which JSON test to conduct from a `.json` file in the `tests/` folder.
+`--test=` Which JSON test to conduct from a `.json` file in the `tests/` folder.
 
 `--v` or `--verbose` Display verbose data in the console.
+
+`--label=` Add optional text below each test label for distinguishing test location in output and Plotly charts (when `--chart` is enabled). This is required when using `--append`. Each test can have it's own label, or you can label only the tests you want to append. For example, `--label=Home` will add "Home" to each test label. Then, your remote tests could use `--label=Remote --append` and th new tests with the label "Remote" will be added to the right of your previous test(s). Using this combination, there's no limit to the number of locations you could run the test from and combine on the same chart.
 
 `--append` Used with `--chart`, this will perform the same tests and append them to the existing data with "Remote" appended to the labels. This is intended for testing loading speed from a remote location (like a VPS).
 

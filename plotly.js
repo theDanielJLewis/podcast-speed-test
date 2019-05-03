@@ -8,7 +8,6 @@ if ( argv['v'] || argv['verbose'] ) var verbose = true;
 if ( argv['http2'] ) var http2 = true;
 if ( argv['gzip'] || argv['compression'] ) var gzip = true;
 if ( argv['append'] ) {
-    var append = true;
     var fileopt = 'extend';
 } else {
     var fileopt = 'overwrite';
@@ -57,12 +56,6 @@ async function createChart(testResults, benchmarkResults) {
 
     if (verbose) console.log(data);
 
-    if (append) {
-        for (const key in data.labels) {
-            data.labels[key] += ' Remote';
-        }
-    }
-    
     var averages = {
         x: data.labels,
         y: data.averages,

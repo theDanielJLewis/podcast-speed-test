@@ -15,6 +15,10 @@ let reqOptions = {
 if ( argv['v'] || argv['verbose'] ) var verbose = true;
 if ( argv['http2'] ) var http2 = true;
 if ( argv['gzip'] || argv['compression'] ) var gzip = true;
+if ( argv['label'] ) {
+    var addLabel = true;
+    var labelAppend = '<br>' + argv['label'];
+}
 
 jsonfile.readFile(urlListFile, function (err, testSettings) {
     if (err) console.error(err);
@@ -42,6 +46,7 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                     if (index === 0 ) {
                         url.bytes = body.length;
                         url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
+                        if (addLabel) url.label += labelAppend;
                     }
                     
                     if (gzip) {
@@ -49,6 +54,7 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                             if (index === 0 ) {
                                 url.bytesGzip = response.headers['content-length'] || gzipSize.sync(body);
                                 url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
+                                if (addLabel) url.label += labelAppend;
                             }        
                             if (error) {
                                 // console.log(error);
