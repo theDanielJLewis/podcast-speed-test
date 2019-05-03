@@ -111,7 +111,7 @@ async function createChart(testResults, benchmarkResults) {
         // //   t: 100,
         //   pad: 0
         // },      
-        title: `${testResults.label} feed loading time (${runs} runs)`,
+        title: `${testResults.title} feed loading time (${runs} runs)`,
         barmode: "group",
         xaxis: {
             title: 'Feed source',

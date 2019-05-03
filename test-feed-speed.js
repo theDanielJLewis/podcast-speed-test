@@ -31,7 +31,7 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
     if (err) console.error(err);
 
     let testResults = {
-        label: testSettings.label,
+        title: testSettings.title,
         runs,
         file: testSettings.file,
         results: []
