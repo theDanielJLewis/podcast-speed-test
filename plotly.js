@@ -2,7 +2,12 @@ const argv = require('minimist')(process.argv.slice(2));
 const jsonFile = require('jsonfile');
 
 let runs = argv['runs'] || 10;
-let test = argv['test'];
+let test = argv['test'] || 'demo';
+
+if ( argv['v'] || argv['verbose'] ) var verbose = true;
+if ( argv['http2'] ) var http2 = true;
+if ( argv['gzip'] || argv['compression'] ) var gzip = true;
+
 
 async function createChart(testResults, benchmarkResults) {
     try {
@@ -15,17 +20,17 @@ async function createChart(testResults, benchmarkResults) {
     }
     const plotly = require('plotly')(plotlyUsername, plotlyApi);
     
-    console.log('Preparing chart...');
+    console.log('Preparing chart ...');
     let data = {
         labels: new Array,
         averages: new Array,
         medians: new Array,
     }
-    if (argv['http2']) {
+    if (http2) {
         data.averagesHttp2 = new Array;
         data.mediansHttp2 = new Array;
     }
-    if (argv['gzip']) {
+    if (gzip) {
         data.averagesGzip = new Array;
         data.mediansGzip = new Array;
     }
@@ -34,17 +39,17 @@ async function createChart(testResults, benchmarkResults) {
         data.labels.push(result.label);
         data.averages.push(result.average);
         data.medians.push(result.median);
-        if (argv['http2']) {
+        if (http2) {
             data.averagesHttp2.push(result.averageHttp2);
             data.mediansHttp2.push(result.medianHttp2);
         }
-        if (argv['gzip']) {
+        if (gzip) {
             data.averagesGzip.push(result.averageGzip);
             data.mediansGzip.push(result.medianGzip);
         }
     }
 
-    console.log(data);
+    if (verbose) console.log(data);
     
     var averages = {
         x: data.labels,
@@ -65,7 +70,7 @@ async function createChart(testResults, benchmarkResults) {
         yaxis: "y2",
         type: "line"
     };
-    if (argv['http2']) {
+    if (http2) {
         var averagesHttp2 = {
             x: data.labels,
             y: data.averagesHttp2,
@@ -79,7 +84,7 @@ async function createChart(testResults, benchmarkResults) {
             type: "bar"
         };
         var chartData = [averages, medians, averagesHttp2, mediansHttp2];
-    } else if (argv['gzip']) {
+    } else if (gzip) {
             var averagesGzip = {
                 x: data.labels,
                 y: data.averagesGzip,
@@ -142,7 +147,10 @@ async function createChart(testResults, benchmarkResults) {
     plotly.plot(chartData, graphOptions, function (err, msg) {
         if (err) console.log(err.body);
 
-        console.log(msg);
+        if (verbose) {
+            console.log(msg);
+        }
+        console.log('Chart ready at',msg.url);
     });
 
 }

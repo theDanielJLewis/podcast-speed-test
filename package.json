@@ -11,18 +11,12 @@
   "dependencies": {
     "argv": "0.0.2",
     "async": "^2.6.2",
-    "bottleneck": "^2.18.0",
-    "express": "^4.16.4",
     "gzip-size": "^5.1.0",
     "h2-request": "^1.1.1",
     "jsonfile": "^5.0.0",
     "minimist": "^1.2.0",
-    "node-gyp": "^4.0.0",
-    "node-pre-gyp": "^0.13.0",
-    "nodemon": "^1.19.0",
     "plotly": "^1.0.6",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.7"
+    "request": "^2.88.0"
   },
   "directories": {
     "test": "tests"

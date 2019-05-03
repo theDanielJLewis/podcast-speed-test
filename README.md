@@ -18,13 +18,15 @@ node test-feed-speed.js --gzip --runs=5 --chart --test=tap
 
 ## Options
 
-`--runs=[number]` Enter the number of times to run the test on each URL.
+`--runs=[number]` Enter the number of times to run the test on each URL. Default 10.
 
 `--chart` Output the resulting comparison data to Plotly. This requires a Plotly username and API key (see below).
 
 `--gzip` Run an additional batch of times (same number of times as `--runs`) with gzip compression enabled.
 
 `--test=[name]` Which JSON test to conduct from a `.json` file in the `tests/` folder.
+
+`--v` or `--verbose` Display verbose data in the console.
 
 ## JSON test formats
 

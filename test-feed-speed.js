@@ -1,31 +1,20 @@
 const request = require('h2-request');
 const argv = require('minimist')(process.argv.slice(2));
-const Bottleneck = require('bottleneck');
 const jsonfile = require('jsonfile');
 const async = require('async');
 const gzipSize = require('gzip-size');
 const createChart = require('./plotly.js');
 
-var limiter = new Bottleneck({
-    maxConcurrent: 1,
-    // minTime: 10,
-    // reservoir: 2, // initial value
-    // reservoirRefreshAmount: 2,
-    // reservoirRefreshInterval: 1 * 1000 // must be divisible by 250
-});
-
 let runs = argv['runs'] || 10;
-let test = argv['test'] || 'libsyn';
+let test = argv['test'] || 'demo';
 let urlListFile = 'tests/' + test + '.json';
 let reqOptions = {
     time: true,
 }
 
-if (argv['http2']) {
-    console.log('Using HTTP/2');
-} else {
-    console.log('Using HTTP/1.1');
-}
+if ( argv['v'] || argv['verbose'] ) var verbose = true;
+if ( argv['http2'] ) var http2 = true;
+if ( argv['gzip'] || argv['compression'] ) var gzip = true;
 
 jsonfile.readFile(urlListFile, function (err, testSettings) {
     if (err) console.error(err);
@@ -38,10 +27,10 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
     };
 
     async.eachLimit(testSettings.tests, 1, (url, eachCallback) => {
-        console.log('Testing',url.label);
+        console.log('Testing',url.label,'...');
         url.runResults = [];
-        if (argv['http2']) url.runResultsHttp2 = [];
-        if (argv['gzip']) url.runResultsGzip = [];
+        if (http2) url.runResultsHttp2 = [];
+        if (gzip) url.runResultsGzip = [];
 
         async.timesLimit(runs, 1, (index, timesCallback) => {
             // setTimeout(() => {
@@ -54,7 +43,7 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                         url.bytes = body.length;
                     }
                     
-                    if (argv['gzip']) {
+                    if (gzip) {
                         request(url.url, { ...reqOptions, disableHttp2: true, gzip: true }, (error, response, body) => {
                             if (index === 0 ) {
                                 url.bytesGzip = response.headers['content-length'] || gzipSize.sync(body);
@@ -70,7 +59,7 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                                 timesCallback();
                             }
                         });    
-                    } else if (argv['http2']) {
+                    } else if (http2) {
                         request(url.url, { ...reqOptions }, (error, response, body) => {
                             if (error) {
                                 // console.log(error);
@@ -94,16 +83,16 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
             } else {
                 url.average = Math.round(average(url.runResults));
                 url.median = median(url.runResults);
-                if (argv['gzip']) {
+                if (gzip) {
                     url.averageGzip = Math.round(average(url.runResultsGzip));
                     url.medianGzip = median(url.runResultsGzip);
                 }
-                if (argv['http2']) {
+                if (http2) {
                     url.averageHttp2 = Math.round(average(url.runResultsHttp2));
                     url.medianHttp2 = median(url.runResultsHttp2);
                 }
                 testResults.results.push(url);
-                console.log(url);
+                if (verbose) console.log(url);
                 eachCallback();
             }
         });
@@ -111,7 +100,6 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
         if (error) {
             console.log('eachCallback error:', error);
         } else {
-            console.log('Finished each');
             benchmark(testResults)
                 .then( (benchmarkResults) => { 
                     if (argv['chart']) {
@@ -134,7 +122,7 @@ function benchmark(testResults) {
 
         for (const result of testResults.results) {
             benchmarkResults.medians.push(Math.round(result.median / benchmarkTest.median * 100));
-            if (argv['gzip']) {
+            if (gzip) {
                 benchmarkResults.gzipMedians.push(Math.round(result.medianGzip / benchmarkTest.medianGzip * 100));
             }
         }
