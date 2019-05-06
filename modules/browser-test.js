@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const argv = require('minimist')(process.argv.slice(2));
 const runTest = require('./run-test.js');
+const dns = require('dns');
+const os = require('os');
 
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
@@ -31,8 +33,11 @@ app.get('/', async (req, res) => {
 
 // console.log(argv['test']);
 
-const port = 4000;
-app.listen(port, () => console.log(`Generate chart at http://localhost:${port}`));
+dns.lookup(os.hostname(), (err, ip, family) => {
+    const port = 4000;
+    app.listen(port, () => console.log(`Generate chart at http://${ip}:${port}`));
+});  
+
 
 function createChart(testOptions, testResults) {
 
