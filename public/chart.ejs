@@ -1,0 +1,50 @@
+<html>
+
+<head>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {
+			'packages': ['corechart']
+		});
+		google.charts.load('current', {
+			'packages': ['table']
+		});
+		google.charts.setOnLoadCallback(drawChart);
+		// google.charts.setOnLoadCallback(drawTable);
+
+		var options = <%- JSON.stringify(chartOptions) %>;
+		var chartData = <%- JSON.stringify(chartData) %>;
+
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable(chartData);
+			var chart_div = document.getElementById('chart');
+			var chart = new google.visualization.ComboChart(chart_div);
+
+			chart.draw(data, options);
+
+		    // Wait for the chart to finish drawing before calling the getImageURI() method.
+			// google.visualization.events.addListener(chart, 'ready', function () {
+			// 	// chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+			// 	document.getElementById('png').outerHTML = '<a href="' + chart.getImageURI() + '">Download PNG</a>';
+			// 	// console.log(chart_div.innerHTML);
+			// });
+		};
+
+		
+		function drawTable() {
+			var data = google.visualization.arrayToDataTable(chartData);
+			var table = new google.visualization.Table(document.getElementById('table'));
+			table.draw(data, options);
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+	<h1><%= pageData.title %></h1>
+	<div id="png"></div>
+	<div id="chart"></div>
+	<div id="table"></div>
+</body>
+
+</html>
