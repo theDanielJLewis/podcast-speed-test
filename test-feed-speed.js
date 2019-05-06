@@ -3,7 +3,10 @@ const argv = require('minimist')(process.argv.slice(2));
 const jsonfile = require('jsonfile');
 const async = require('async');
 const gzipSize = require('gzip-size');
-const createChart = require('./plotly.js');
+if (argv['chart'] == 'google') var createChart = require('./google-charts.js'); 
+if (argv['chart'] == 'plotly') var createChart = require('./plotly.js');
+const express = require('express');
+const app = express();
 
 let runs = argv['runs'] || 10;
 let test = argv['test'] || 'demo';
@@ -63,7 +66,7 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
                                 // url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
                                 // if (addLabel) url.label += labelAppend;
                                 if ( test === 0 ) {
-                                    testResults.bytesGzip = url.bytesGzip;
+                                    testResults.bytesGzip = Number(url.bytesGzip);
                                 }        
                             }        
                             if (error) {
@@ -118,9 +121,10 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
             console.log('eachCallback error:', error);
         } else {
             benchmark(testResults)
-                .then( (benchmarkResults) => { 
+                .then( (testResultsWithBenchmark) => {
+
                     if (argv['chart']) {
-                        createChart(testResults, benchmarkResults);
+                        createChart(testResultsWithBenchmark);
                     }
                 })
                 .catch( error => console.log(error));
@@ -130,20 +134,17 @@ jsonfile.readFile(urlListFile, function (err, testSettings) {
 
 function benchmark(testResults) {
     return new Promise( (resolve, reject) => {
-        let benchmarkResults = {
-            gzipMedians: [],
-            medians: []
-        };
 
         let benchmarkTest = testResults.results[testResults.results.length - 1];
 
         for (const result of testResults.results) {
-            benchmarkResults.medians.push(Math.round(result.median / benchmarkTest.median * 100));
+            result.bMedian = Math.round(result.median / benchmarkTest.median * 100);
+
             if (gzip) {
-                benchmarkResults.gzipMedians.push(Math.round(result.medianGzip / benchmarkTest.medianGzip * 100));
+                result.bMedianGzip = Math.round(result.medianGzip / benchmarkTest.medianGzip * 100);
             }
         }
-        resolve(benchmarkResults);
+        resolve(testResults);
 
     });
 }
@@ -169,3 +170,4 @@ function average(values) {
 
   return average;
 }
+

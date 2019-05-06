@@ -11,10 +11,15 @@
   "dependencies": {
     "argv": "0.0.2",
     "async": "^2.6.2",
+    "consolidate": "^0.15.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "google-charts": "^2.0.0",
     "gzip-size": "^5.1.0",
     "h2-request": "^1.1.1",
     "jsonfile": "^5.0.0",
     "minimist": "^1.2.0",
+    "mustache": "^3.0.1",
     "plotly": "^1.0.6",
     "request": "^2.88.0"
   },

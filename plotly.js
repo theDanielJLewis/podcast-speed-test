@@ -63,7 +63,7 @@ async function createChart(testResults, benchmarkResults) {
         var averages = {
             x: data.labels,
             y: data.averages,
-            marker: {color: "rgb(0,0,125)"},
+            marker: {color: "rgb(50,100,150)"},
             name: "Average",
             type: "bar"
         };
@@ -73,14 +73,14 @@ async function createChart(testResults, benchmarkResults) {
         var medians = {
             x: data.labels,
             y: data.medians,
-            marker: {color: "rgb(0,0,175)"},
+            marker: {color: "rgb(75,125,175)"},
             name: "Median",
             type: "bar"
         };
         var bMedian = {
             x: data.labels,
             y: benchmarkResults.medians,
-            marker: {color: "rgb(0,0,225)"},
+            marker: {color: "rgb(100,150,200)"},
             name: "% of Median Benchmark",
             yaxis: "y2",
             type: "line"
@@ -93,7 +93,7 @@ async function createChart(testResults, benchmarkResults) {
             var averagesGzip = {
                 x: data.labels,
                 y: data.averagesGzip,
-                marker: {color: "rgb(0,125,0)"},
+                marker: {color: "rgb(200,75,0)"},
                 name: "Gzip Average",
                 type: "bar"
             };
@@ -103,14 +103,14 @@ async function createChart(testResults, benchmarkResults) {
             var mediansGzip = {
                 x: data.labels,
                 y: data.mediansGzip,
-                marker: {color: "rgb(0,175,0)"},
+                marker: {color: "rgb(225,100,25)"},
                 name: "Gzip Median",
                 type: "bar"
             };
             var bMedianGzip = {
                 x: data.labels,
                 y: benchmarkResults.gzipMedians,
-                marker: {color: "rgb(0,225,0)"},
+                marker: {color: "rgb(250,125,50)"},
                 name: "% of Gzip Median Benchmark",
                 yaxis: "y2",
                 type: "line"
@@ -124,7 +124,7 @@ async function createChart(testResults, benchmarkResults) {
             var averagesHttp2 = {
                 x: data.labels,
                 y: data.averagesHttp2,
-                marker: {color: "rgb(125,0,0)"},
+                marker: {color: "rgb(100,0,0)"},
                 name: "HTTP/2 Average",
                 type: "bar"
             };
@@ -134,7 +134,7 @@ async function createChart(testResults, benchmarkResults) {
             var mediansHttp2 = {
                 x: data.labels,
                 y: data.mediansHttp2,
-                marker: {color: "rgb(175,0,0)"},
+                marker: {color: "rgb(150,0,0)"},
                 name: "HTTP/2 Median",
                 type: "bar"
             };
@@ -161,7 +161,7 @@ async function createChart(testResults, benchmarkResults) {
         title: `${testResults.title} feed loading time (${runs} runs)<br>Source: ${testKb} KB uncompressed`,
         barmode: "group",
         xaxis: {
-            title: 'Feed source',
+            title: 'Feed host',
         },
         yaxis: {
             title: "Loading time (ms)",
