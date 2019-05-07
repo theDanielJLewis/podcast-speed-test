@@ -1,0 +1,21 @@
+{
+    "title": "FeedBlitz small",
+    "tests": [
+        {
+            "label": "PowerPress (source)",
+            "url": "https://ultimateradioshow.com/category/family-renewal/feed/"
+        },
+        {
+            "label": "FeedBlitz",
+            "url": "https://feeds.feedblitz.com/family-renewal"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/feedblitz-small"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/feedblitz-small"
+        }
+    ]
+}

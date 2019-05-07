@@ -34,7 +34,7 @@ function runTest(testOptions) {
         
         async.timesLimit(testOptions.tests.length, 1, (test, eachCallback) => {
             let url = testOptions.tests[test];
-            console.log('Testing',url.label,'...');
+            console.log('Testing',url.label,url.url,'...');
             url.runResults = [];
             if (testOptions.http2) url.runResultsHttp2 = [];
             if (testOptions.gzip) url.runResultsGzip = [];
