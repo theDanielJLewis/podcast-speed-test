@@ -50,8 +50,15 @@
 	<h1>Test results</h1>
 	<div id="chart"></div>
 
-	<h3>Chart explanation</h3>
-	<p>Coming soon…</p>
+	<h3>Understanding the chart</h3>
+	<p>Lower values mean better speed.</p>
+	<p>The blue bars show the raw loading time of the uncompressed feed(s). The more the average and media differ from each other, the more inconsistent load times are.</p>
+	<% if (pageOptions.gzip) { %>
+		<p>The orange bars show the loading time of the same feed(s) but requested with compression, if available. The text at the bottom of the chart shows the calculated filesize difference between of uncompressed and compressed feeds. The more the average and media differ from each other, the more inconsistent load times are.</p>
+	<% } %>
+	<% if (pageOptions.benchmark) { %>
+		<p>The line<% if (pageOptions.gzip) { %>s<% } %> show<% if (! pageOptions.gzip) { %>s<% } %> the speed difference compared to the last URL (which will always be a value of 1, as the benchmark). The higher the factor, the slower the feed loads compared to the benchmark.</p>
+	<% } %>
 
 	<% if (pageOptions.image) { %>
 		<h2>PNG image</h2>

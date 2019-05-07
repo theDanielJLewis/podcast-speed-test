@@ -131,6 +131,7 @@ function createChart(testOptions, testResults) {
         // subtitle: '',
         image: testOptions.image,
         table: testOptions.table,
+        ...testOptions
     }
     
     chart.data = [

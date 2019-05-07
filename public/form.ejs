@@ -10,7 +10,9 @@
 <body>
 	<div class="container">
 
-		<h1>Set your feed test options</h1>
+		<h1>Test Feed Speed</h1>
+		<p>Measure and compare podcast RSS feed performance.</p>
+		<h2>Test options</h2>
 		<form action="/chart/" method="post">
 			<fieldset>
 
@@ -118,10 +120,10 @@
 						<input class="form-check-input" type="checkbox" name="gzip" id="gzip" value="true">
 						<label class="form-check-label" for="gzip">Check Gzip compression</label>
 					</div>
-					<div class="form-check">
+					<%# <div class="form-check">
 						<input class="form-check-input" type="checkbox" name="http2" id="http2" value="true">
 						<label class="form-check-label" for="http2">Check HTTP/2</label>
-					</div>
+					</div> %>
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox" name="image" id="image" value="true">
 						<label class="form-check-label" for="image">Generate PNG image</label>
@@ -141,6 +143,23 @@
 
 			</fieldset>
 		</form>
+
+		<h2>Instructions</h2>
+		<p>You must first decide how you want to use Test Feed Speed:</p>
+		<ol>
+			<li>To test and benchmark the same feed with different hosts</li>
+			<li>To test a single podcast RSS feed's performance</li>
+		</ol>
+		<h3>1. Testing different hosts</h3>
+		<p>Test Feed Speed is packaged with several sample tests. You can test with one of these or duplicate and edit the .json files to make your own sample tests. These sample tests will let you see the performance of various podcast feed hosts and they work great if you want to quickly test the same hosts from hosting this code in multiple locations.</p>
+		<p>Or, you can enter up to six feeds to test and compare with each other. The comparison is only fair if the RSS feed is nearly identical with each host. For example, mirroring the same PowerPress feed across different web hosts or server configurations, or mirroring any source feed to FeedBurner or Podcast Mirror.</p>
+		<p>Enter a label and URL for each feed you want to compare. If you omit the label, the feed URL will be used instead (and may result in a cluttered chart). The test will chart the average and media performance of each URL, with optional additional tests for Gzip compression or HTTP/2.</p>
+		<h3>2. Testing a single feed</h3>
+		<p>If you have only one feed to test, simple enter that feed URL and an optional label. The test will chart the average and media performance, with optional additional tests for Gzip compression or HTTP/2.</p>
+		<p>Test Feed Speed is ideal for comparing identical feeds, but even a single feed will help you see how quickly it loads (from the test's hosted location) and the uncompressed and optional compressed sizes of the feed.</p>
+
+		<p>Created by Daniel J. Lewis from <a href="https://theaudacitytopodcast.com/">The Audacity to Podcast</a>. &copy; 2019 D.Joseph Design LLC.</p>
+
 	</div>
 </body>
 
