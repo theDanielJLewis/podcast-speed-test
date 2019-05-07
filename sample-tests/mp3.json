@@ -23,15 +23,15 @@
         },
         {
             "label": "Blubrry",
-            "url": "https://content.blubrry.com/myawesomepodcast/tap229.mp3"
+            "url": "https://media.blubrry.com/myawesomepodcast/content.blubrry.com/myawesomepodcast/tap229.mp3"
         },
         {
             "label": "Bunny CDN",
             "url": "https://noodlemix.b-cdn.net/theaudacitytopodcast/tap229.mp3"
         },
         {
-            "label": "Anchor (Amazon S3)",
-            "url": "https://s3-us-west-2.amazonaws.com/anchor-audio-bank/production/2019-4-7/14241309-44100-1-3a2c1b3de487d.mp3"
+            "label": "Anchor (Amazon Cloudfront)",
+            "url": "https://anchor.fm/s/b301064/podcast/play/3169651/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2019-4-7%2F14241309-44100-1-3a2c1b3de487d.mp3"
         },
         {
             "label": "Amazon S3",
