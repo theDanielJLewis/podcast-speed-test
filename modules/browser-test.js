@@ -23,8 +23,6 @@ app.get('/', (req,res) => {
 
 app.post('/chart', (req, res) => {
     const query = req.body;
-    // if (testOptions.verbose) console.log(req.body);
-    let feeds = query.feeds.split(/\r\n/);
     let testOptions = {
         title: query.title,
         jsonTest: query.test,
@@ -33,28 +31,36 @@ app.post('/chart', (req, res) => {
         verbose: Boolean(query.verbose) || argv['v'] || argv['verbose'],
         gzip: Boolean(query.gzip) || argv['gzip'] || argv['compression'],
         http2: Boolean(query.http2) || argv['http2'],
+        benchmark: new Boolean,
         location: query.location || argv['location'],
         image: Boolean(query.image),
         table: Boolean(query.table)
     };
-    for (const feed of feeds) {
-        let test = feed.split(/,\s?/);
-        testOptions.tests.push({
-            label: test[0],
-            url: test[1]
-        });
-    }
-    if (testOptions.verbose) console.log(testOptions);
-    
+    if (testOptions.verbose) console.log('Form data', req.body);
 
-    // const testResults = await runTest(testOptions);
+    for (let index = 0; index < query.feeds.length; index++) {
+        const feed = query.feeds[index];
+        if ( feed[0] && feed[1] ) {
+            testOptions.tests.push({
+                label: feed[0],
+                url: feed[1]
+            });
+        } else if ( ! feed[0] && feed[1] ) {
+            testOptions.tests.push({
+                label: feed[1],
+                url: feed[1]
+            });
+        }  
+    }
+
+    if (testOptions.verbose) console.log(testOptions);
+
     runTest(testOptions)
         .then( testResults => createChart(testOptions, testResults))
         .then( chart => {
             res.render('../public/chart.ejs', {chartData: chart.data, chartOptions: chart.options, pageOptions: chart.pageOptions} );
             console.log('Chart complete!');
         });
-    
 
 });
 

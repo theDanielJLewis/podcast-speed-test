@@ -11,57 +11,94 @@
 	<div class="container">
 
 		<h1>Set your feed test options</h1>
-		<form class="form-horizontal" action="/chart/" method="post">
+		<form action="/chart/" method="post">
 			<fieldset>
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="title">Test title</label>
-					<div class="col-md-4">
-						<input id="title" name="title" type="text" class="form-control input-md">
-					</div>
-				</div>
-
-				<!-- Textarea -->
-				<div class="form-group">
-				<label class="col-md-12 control-label" for="feeds">Feed labels and URLs</label>
-				<div class="col-md-12">                 
-					<p class="help-block">Separate label and URL with a comma, each test on a new line. For example:</p>
-					<code>
-						FeedBurner,https://feeds.feedburner.com/theaudacitytopodcast-mp3<br/>
-						Podcast Mirror,https://feeds.podcastmirror.com/theaudacitytopodcast
-					</code>
-					<textarea class="form-control" id="feeds" name="feeds"></textarea>
-
-				</div>
+					<label class="control-label" for="title">Test title</label>
+					<input class="form-control col-4" id="title" name="title" type="text">
 				</div>
 
 				<!-- Select Basic -->
 				<div class="form-group">
-				<label class="col-md-4 control-label" for="test">… or select a sample test</label>
-				<div class="col-md-4">
-					<select id="test" name="test" class="form-control">
+					<label class="control-label" for="test">Select a sample test or enter your own feed(s) below</label>
+					<select id="test" name="test" class="form-control col-4">
 						<option></option>
 						<% sampleTests.forEach( sampleTest => { %>
 							<option value="<%= sampleTest.replace('.json','') %>"><%= sampleTest.replace('.json','') %></option>
 						<% }); %>
 					</select>
 				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="row">
+						<div class="col-4">
+							<label for="title">Label</label>
+							<input id="label1" name="feeds[1]" type="text" class="form-control">
+						</div>
+						<div class="col-8">
+							<label for="title">Feed</label>
+							<input id="feed1" name="feeds[1]" type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-4">
+							<input id="label2" name="feeds[2]" type="text" class="form-control">
+						</div>
+						<div class="col-8">
+							<input id="feed2" name="feeds[2]" type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-4">
+							<input id="label3" name="feeds[3]" type="text" class="form-control">
+						</div>
+						<div class="col-8">
+							<input id="feed3" name="feeds[3]" type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-4">
+							<input id="label4" name="feeds[4]" type="text" class="form-control">
+						</div>
+						<div class="col-8">
+							<input id="feed4" name="feeds[4]" type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-4">
+							<input id="label5" name="feeds[5]" type="text" class="form-control">
+						</div>
+						<div class="col-8">
+							<input id="feed5" name="feeds[5]" type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-4">
+							<input id="label1" name="feeds[6]" type="text" class="form-control">
+						</div>
+						<div class="col-8">
+							<input id="feed1" name="feeds[6]" type="text" class="form-control">
+						</div>
+					</div>
 				</div>
 
-
 				<%# <!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="test">Premade test</label>
-					<div class="col-md-4">
-						<input id="test" name="test" type="text" placeholder="libsyn-small" class="form-control input-md">
-					</div>
-				</div> %>
-
-				<%# <!-- Text input-->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="location">Test location/scenario label</label>
-					<div class="col-md-4">
+					<label class="col control-label" for="location">Test location/scenario label</label>
+					<div class="col">
 						<input id="location" name="location" type="text" placeholder="Cincinnati"
 							class="form-control input-md">
 						<span class="help-block">If you want to distinguish tests from different locations or
@@ -71,55 +108,36 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="runs">How many times to test each feed?</label>
-					<div class="col-md-2">
-						<input id="runs" name="runs" type="text" placeholder="default 10" class="form-control input-md">
-					</div>
+					<label class="control-label" for="runs">How many times to test each feed?</label>
+					<input class="form-control col-2" id="runs" name="runs" type="text" placeholder="default 10">
 				</div>
 
 				<!-- Multiple Checkboxes -->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="options">Options</label>
-					<div class="col-md-4">
-						<div class="checkbox">
-							<label for="options-0">
-								<input type="checkbox" name="gzip" id="options-0" value="true">
-								Check Gzip compression
-							</label>
-						</div>
-						<div class="checkbox">
-							<label for="options-1">
-								<input type="checkbox" name="http2" id="options-1" value="true">
-								Check HTTP/2
-							</label>
-						</div>
-						<div class="checkbox">
-							<label for="options-2">
-								<input type="checkbox" name="image" id="options-2" value="true">
-								Generate PNG image
-							</label>
-						</div>
-						<div class="checkbox">
-							<label for="options-4">
-								<input type="checkbox" name="table" id="options-4" value="true">
-								Show data table
-							</label>
-						</div>
-						<div class="checkbox">
-							<label for="options-3">
-								<input type="checkbox" name="verbose" id="options-3" value="true">
-								Verbose node.js log
-							</label>
-						</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="gzip" id="gzip" value="true">
+						<label class="form-check-label" for="gzip">Check Gzip compression</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="http2" id="http2" value="true">
+						<label class="form-check-label" for="http2">Check HTTP/2</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="image" id="image" value="true">
+						<label class="form-check-label" for="image">Generate PNG image</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="table" id="table" value="true">
+						<label class="form-check-label" for="table">Show data table</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="verbose" id="verbose" value="true">
+						<label class="form-check-label" for="verbose">Verbose node.js log</label>
 					</div>
 				</div>
 
 				<!-- Button -->
-				<div class="form-group">
-					<div class="col-md-4">
-						<button id="submit" type="submit" class="btn btn-primary">Start test</button>
-					</div>
-				</div>
+				<button id="submit" type="submit" class="btn btn-primary">Start test</button>
 
 			</fieldset>
 		</form>
