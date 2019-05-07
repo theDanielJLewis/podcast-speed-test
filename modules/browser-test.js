@@ -31,7 +31,7 @@ app.post('/chart', (req, res) => {
         verbose: Boolean(query.verbose) || argv['v'] || argv['verbose'],
         gzip: Boolean(query.gzip) || argv['gzip'] || argv['compression'],
         http2: Boolean(query.http2) || argv['http2'],
-        benchmark: new Boolean,
+        benchmark: false,
         location: query.location || argv['location'],
         image: Boolean(query.image),
         table: Boolean(query.table)
@@ -52,6 +52,7 @@ app.post('/chart', (req, res) => {
             });
         }  
     }
+    if (testOptions.tests.length > 1 ) testOptions.benchmark = true;
 
     if (testOptions.verbose) console.log(testOptions);
 
@@ -83,15 +84,15 @@ function createChart(testOptions, testResults) {
         'Feed host',
         'Avg.',
         'Median',
-        '× Median Benchmark',
     ];
+    if (testOptions.benchmark) chartColumns.push('× Median Benchmark')
     
     if (testOptions.gzip) {
         chartColumns.push(
             'Gzip Avg.',
             'Gzip Median',
-            '× Gzip Median Benchmark',
         );
+        if (testOptions.benchmark) chartColumns.push('× Gzip Median Benchmark')
     }
 
     if (testOptions.runs > 1) {
@@ -104,26 +105,25 @@ function createChart(testOptions, testResults) {
 
     for (const result of testResults.results) {
         // console.log(result.label);
+        let pushToChart = [
+            result.label,
+            result.average,
+            result.median,
+        ];
+        if (testOptions.benchmark) pushToChart.push(result.benchmarkMedian);
+        
         if (testOptions.gzip) {
-            chartRows.push([
-                result.label,
-                result.average,
-                result.median,
-                result.benchmarkMedian,
+            pushToChart.push(
                 result.averageGzip,
                 result.medianGzip,
-                result.benchmarkMedianGzip,
-            ]);
-        } else {
-            chartRows.push([
-                result.label,
-                result.average,
-                result.median,
-                result.benchmarkMedian,
-            ]);
+            );
+            if (testOptions.benchmark) pushToChart.push(result.benchmarkMedianGzip);
         }
+
+        chartRows.push(pushToChart);
     }
 
+    
     let chart = new Object;
     
     chart.pageOptions = {
@@ -137,7 +137,8 @@ function createChart(testOptions, testResults) {
         chartColumns,
         ...chartRows,
     ];
-
+    if (testOptions.verbose) console.log(chart.data);
+    
     chart.options = {
         width: '100%',
         height: 600,
@@ -155,10 +156,8 @@ function createChart(testOptions, testResults) {
         colors: [
             'rgb(50,100,150)',
             'rgb(75,125,175)',
-            'rgb(100,150,200)',
             'rgb(200,75,0)',
             'rgb(225,100,25)',
-            'rgb(250,125,50)',
         ],
         seriesType: 'bars',
         vAxis: {
@@ -172,7 +171,23 @@ function createChart(testOptions, testResults) {
             position: 'top',
             alignment: 'center',
         },
-        series: {
+        vAxes: {
+            0: {
+                baseline: 0,
+            },
+        }
+    }
+
+    if (testOptions.benchmark) {
+        chart.options.colors = [
+            'rgb(50,100,150)',
+            'rgb(75,125,175)',
+            'rgb(100,150,200)',
+            'rgb(200,75,0)',
+            'rgb(225,100,25)',
+            'rgb(250,125,50)',
+        ];
+        chart.options.series = {
             2: {
                 type: 'line',
                 targetAxisIndex: 1,
@@ -183,17 +198,12 @@ function createChart(testOptions, testResults) {
                 targetAxisIndex: 1,
                 lineWidth: 4,
             }
-        },
-        vAxes: {
-            0: {
-                baseline: 0,
-            },
-            1: {
-                title: '× Benchmark',
-                baseline: 0,
-                gridlines: { count: 0 },
-                format: '##.##×'
-            }
+        }
+        chart.options.vAxes[1] = {
+            title: '× Benchmark',
+            baseline: 0,
+            gridlines: { count: 0 },
+            format: '##.##×'
         }
     }
     return new Promise( (resolve, reject) => {

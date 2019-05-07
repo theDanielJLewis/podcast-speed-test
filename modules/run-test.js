@@ -22,6 +22,8 @@ function runTest(testOptions) {
             testOptions.file = jsonTest.file;
         }
 
+        if (testOptions.tests.length > 1 ) testOptions.benchmark = true;
+
         let testResults = {
             title: testOptions.title,
             runs: testOptions.runs,
@@ -116,12 +118,12 @@ function runTest(testOptions) {
             if (error) {
                 console.log('eachCallback error:', error);
             } else {
-                const testResultsWithBenchmark = await calcBenchmark(testResults);
-                resolve(testResultsWithBenchmark);
-            
-                // if (argv['chart']) {
-                //     createChart(testResultsWithBenchmark);
-                // }
+                if (testOptions.benchmark) {
+                    finalResults = await calcBenchmark(testResults);
+                } else {
+                    finalResults = testResults;
+                }
+                resolve(finalResults);
             }
         });
     });
