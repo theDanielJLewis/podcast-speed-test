@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const argv = require('minimist')(process.argv.slice(2));
 const runTest = require('./run-test.js');
+const testFolder = './tests/';
+const fs = require('fs');
+
+
 
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
@@ -12,7 +16,9 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.get('/', (req,res) => {
-    res.render('../public/form.ejs');
+    fs.readdir(testFolder, (err, sampleTests) => {
+        res.render('../public/form.ejs', {sampleTests});
+      });
 });
 
 app.post('/chart', (req, res) => {

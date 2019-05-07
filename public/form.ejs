@@ -36,6 +36,20 @@
 				</div>
 				</div>
 
+				<!-- Select Basic -->
+				<div class="form-group">
+				<label class="col-md-4 control-label" for="test">… or select a sample test</label>
+				<div class="col-md-4">
+					<select id="test" name="test" class="form-control">
+						<option></option>
+						<% sampleTests.forEach( sampleTest => { %>
+							<option value="<%= sampleTest.replace('.json','') %>"><%= sampleTest.replace('.json','') %></option>
+						<% }); %>
+					</select>
+				</div>
+				</div>
+
+
 				<%# <!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="test">Premade test</label>
@@ -44,7 +58,7 @@
 					</div>
 				</div> %>
 
-				<!-- Text input-->
+				<%# <!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="location">Test location/scenario label</label>
 					<div class="col-md-4">
@@ -53,7 +67,7 @@
 						<span class="help-block">If you want to distinguish tests from different locations or
 							scenarios.</span>
 					</div>
-				</div>
+				</div> %>
 
 				<!-- Text input-->
 				<div class="form-group">
