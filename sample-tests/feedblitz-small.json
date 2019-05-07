@@ -2,12 +2,12 @@
     "title": "FeedBlitz small",
     "tests": [
         {
-            "label": "PowerPress (source)",
-            "url": "https://ultimateradioshow.com/category/family-renewal/feed/"
+            "label": "WP + Seriously Simple Podcasting",
+            "url": "https://unwindmedia.com/feed/podcast/east-meets-west"
         },
         {
             "label": "FeedBlitz",
-            "url": "https://feeds.feedblitz.com/family-renewal"
+            "url": "https://feeds.feedblitz.com/eastmeetswest"
         },
         {
             "label": "FeedBurner",
