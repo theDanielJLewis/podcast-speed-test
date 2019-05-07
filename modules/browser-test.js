@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const argv = require('minimist')(process.argv.slice(2));
 const runTest = require('./run-test.js');
-const testFolder = './tests/';
+const testFolder = './sample-tests/';
 const fs = require('fs');
 
 
