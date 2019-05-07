@@ -1,8 +1,9 @@
 {
-  "label": "PowerPress",
+  "label": "PowerPress small",
+  "file": "powerpress2",
   "tests": [
     {
-      "label": "Liquid Web PowerPress",
+      "label": "PowerPress",
       "url": "https://cleancomedypodcast.com/feed/podcast"
     },
     {

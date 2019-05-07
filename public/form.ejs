@@ -16,21 +16,21 @@
 		<form action="/chart/" method="post">
 			<fieldset>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="control-label" for="title">Test title</label>
-					<input class="form-control col-4" id="title" name="title" type="text">
-				</div>
-
 				<!-- Select Basic -->
 				<div class="form-group">
-					<label class="control-label" for="test">Select a sample test or enter your own feed(s) below</label>
+					<label class="control-label" for="test">Select a sample test or leave blank to enter your own feed(s) below</label>
 					<select id="test" name="test" class="form-control col-4">
 						<option></option>
 						<% sampleTests.forEach( sampleTest => { %>
 							<option value="<%= sampleTest.replace('.json','') %>"><%= sampleTest.replace('.json','') %></option>
 						<% }); %>
 					</select>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="control-label" for="title">Test title</label>
+					<input class="form-control col-4" id="title" name="title" type="text">
 				</div>
 
 				<!-- Text input-->
@@ -151,7 +151,7 @@
 			<li>To test a single podcast RSS feed's performance</li>
 		</ol>
 		<h3>1. Testing different hosts</h3>
-		<p>Test Feed Speed is packaged with several sample tests. You can test with one of these or duplicate and edit the .json files to make your own sample tests. These sample tests will let you see the performance of various podcast feed hosts and they work great if you want to quickly test the same hosts from hosting this code in multiple locations.</p>
+		<p>Test Feed Speed is packaged with several sample tests. You can test with one of these or duplicate and edit the demo.json files in the "sample-tests" folder to make your own sample test. These sample tests will let you see the performance of various podcast feed hosts and they work great if you want to quickly test the same hosts from multiple locations by cloning this test to different servers.</p>
 		<p>Or, you can enter up to six feeds to test and compare with each other. The comparison is only fair if the RSS feed is nearly identical with each host. For example, mirroring the same PowerPress feed across different web hosts or server configurations, or mirroring any source feed to FeedBurner or Podcast Mirror.</p>
 		<p>Enter a label and URL for each feed you want to compare. If you omit the label, the feed URL will be used instead (and may result in a cluttered chart). The test will chart the average and media performance of each URL, with optional additional tests for Gzip compression or HTTP/2.</p>
 		<h3>2. Testing a single feed</h3>

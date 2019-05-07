@@ -1,17 +1,17 @@
 {
-    "title": "Anchor",
+    "title": "Anchor small",
     "file": "anchor",
     "tests": [
         {
-            "label": "Anchor small",
+            "label": "Anchor",
             "url": "https://anchor.fm/s/8e0db2c/podcast/rss"
         },
         {
-            "label": "FeedBurner small",
+            "label": "FeedBurner",
             "url": "https://feeds.feedburner.com/anchortest"
         },
         {
-            "label": "Podcast Mirror small",
+            "label": "Podcast Mirror",
             "url": "https://feeds.podcastmirror.com/anchortest"
         }
     ]

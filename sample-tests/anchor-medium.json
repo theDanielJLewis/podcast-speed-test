@@ -1,12 +1,12 @@
 {
-    "title": "Anchor",
+    "title": "Anchor medium",
     "tests": [
         {
-            "label": "Anchor medium",
+            "label": "Anchor",
             "url": "https://anchor.fm/s/1265ab0/podcast/rss"
         },
         {
-            "label": "Podcast Mirror medium",
+            "label": "Podcast Mirror",
             "url": "https://feeds.podcastmirror.com/anchor-medium"
         }
     ]

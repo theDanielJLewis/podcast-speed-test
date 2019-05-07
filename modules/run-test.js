@@ -16,13 +16,12 @@ function runTest(testOptions) {
         }
     
         if (testOptions.jsonTest) {
-            let urlListFile = 'tests/' + testOptions.jsonTest + '.json';
+            let urlListFile = 'sample-tests/' + testOptions.jsonTest + '.json';
             let jsonTest = await jsonfile.readFile(urlListFile);
+            testOptions.title = jsonTest.title;
             testOptions.tests = jsonTest.tests;
             testOptions.file = jsonTest.file;
         }
-
-        if (testOptions.tests.length > 1 ) testOptions.benchmark = true;
 
         let testResults = {
             title: testOptions.title,
@@ -30,6 +29,8 @@ function runTest(testOptions) {
             // file: jsonTest.file,
             results: []
         };
+
+        if (testOptions.tests.length > 1 ) testOptions.benchmark = true;
         
         async.timesLimit(testOptions.tests.length, 1, (test, eachCallback) => {
             let url = testOptions.tests[test];
