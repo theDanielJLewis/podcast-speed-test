@@ -6,26 +6,47 @@ const runTest = require('./run-test.js');
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
-app.get('/', async (req, res) => {
-    const query = req.query;
-    
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.get('/', (req,res) => {
+    res.render('../public/form.ejs');
+});
+
+app.post('/chart', (req, res) => {
+    const query = req.body;
+    // if (testOptions.verbose) console.log(req.body);
+    let feeds = query.feeds.split(/\r\n/);
     let testOptions = {
-        test: query.test || argv['test'] || 'demo',
+        title: query.title,
+        jsonTest: query.test,
+        tests: new Array,
         runs: query.runs || argv['runs'] || 10,
-        verbose: argv['v'] || argv['verbose'],
+        verbose: Boolean(query.verbose) || argv['v'] || argv['verbose'],
         gzip: Boolean(query.gzip) || argv['gzip'] || argv['compression'],
         http2: Boolean(query.http2) || argv['http2'],
         location: query.location || argv['location'],
     };
-
-    const testResults = await runTest(testOptions);
-    const chart = await createChart(testOptions, testResults);
-    console.log('Chart complete!');
-    if (testOptions.verbose) console.dir(testResults, { depth: null });
+    for (const feed of feeds) {
+        let test = feed.split(/,\s?/);
+        testOptions.tests.push({
+            label: test[0],
+            url: test[1]
+        });
+    }
+    if (testOptions.verbose) console.log(testOptions);
     
-    res.render('../public/chart.ejs', {chartData: chart.data, chartOptions: chart.options, pageData: chart.pageData} );
+
+    // const testResults = await runTest(testOptions);
+    runTest(testOptions)
+        .then( testResults => createChart(testOptions, testResults))
+        .then( chart => {
+            res.render('../public/chart.ejs', {chartData: chart.data, chartOptions: chart.options, pageData: chart.pageData} );
+            console.log('Chart complete!');
+        });
+    
 
 });
 
@@ -92,8 +113,14 @@ function createChart(testOptions, testResults) {
     ];
 
     chart.options = {
-        width: 'auto',
+        width: '100%',
         height: 600,
+        chartArea: {
+            width: '85%',
+            height: '80%',
+            // left:10,
+            // top:100,
+        },
         colors: [
             'rgb(50,100,150)',
             'rgb(75,125,175)',
@@ -103,8 +130,13 @@ function createChart(testOptions, testResults) {
             'rgb(250,125,50)',
         ],
         seriesType: 'bars',
-        vAxis: {title: 'Loading time (ms)'},
-        hAxis: {title: 'Feed host'},
+        vAxis: {
+            title: 'Loading time (ms)',
+        },
+        // hAxis: {title: 'Feed host'},
+        legend: {
+            maxLines: 2,
+        },
         series: {
             2: {
                 type: 'line',

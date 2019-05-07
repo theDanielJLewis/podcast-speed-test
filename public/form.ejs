@@ -1,0 +1,106 @@
+<html>
+
+<head>
+	<script type="text/javascript"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container">
+
+		<h1>Form!</h1>
+		<form class="form-horizontal" action="/chart/" method="post">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Form Name</legend>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="title">Test title</label>
+					<div class="col-md-4">
+						<input id="title" name="title" type="text" class="form-control input-md">
+					</div>
+				</div>
+
+				<!-- Textarea -->
+				<div class="form-group">
+				<label class="col-md-12 control-label" for="feeds">Feed labels and URLs</label>
+				<div class="col-md-12">                 
+					<p class="help-block">Separate label and URL with a comma, each test on a new line. For example:</p>
+					<code>
+						FeedBurner,https://feeds.feedburner.com/theaudacitytopodcast-mp3<br/>
+						Podcast Mirror,https://feeds.podcastmirror.com/theaudacitytopodcast
+					</code>
+					<textarea class="form-control" id="feeds" name="feeds"></textarea>
+
+				</div>
+				</div>
+
+				<%# <!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="test">Premade test</label>
+					<div class="col-md-4">
+						<input id="test" name="test" type="text" placeholder="libsyn-small" class="form-control input-md">
+					</div>
+				</div> %>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="location">Test location/scenario label</label>
+					<div class="col-md-4">
+						<input id="location" name="location" type="text" placeholder="Cincinnati"
+							class="form-control input-md">
+						<span class="help-block">If you want to distinguish tests from different locations or
+							scenarios.</span>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="runs">How many times to test each feed?</label>
+					<div class="col-md-2">
+						<input id="runs" name="runs" type="text" placeholder="10" class="form-control input-md">
+					</div>
+				</div>
+
+				<!-- Multiple Checkboxes -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="options">Options</label>
+					<div class="col-md-4">
+						<div class="checkbox">
+							<label for="options-0">
+								<input type="checkbox" name="gzip" id="options-0" value="true">
+								Check Gzip
+							</label>
+						</div>
+						<div class="checkbox">
+							<label for="options-1">
+								<input type="checkbox" name="verbose" id="options-1" value="true">
+								Verbose node.js log
+							</label>
+						</div>
+						<div class="checkbox">
+							<label for="options-2">
+								<input type="checkbox" name="http2" id="options-2" value="true">
+								Check HTTP2
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<div class="col-md-4">
+						<button id="submit" type="submit" class="btn btn-primary">Start test</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
+	</div>
+</body>
+
+</html>
