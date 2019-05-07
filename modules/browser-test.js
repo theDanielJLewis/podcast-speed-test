@@ -28,6 +28,8 @@ app.post('/chart', (req, res) => {
         gzip: Boolean(query.gzip) || argv['gzip'] || argv['compression'],
         http2: Boolean(query.http2) || argv['http2'],
         location: query.location || argv['location'],
+        image: Boolean(query.image),
+        table: Boolean(query.table)
     };
     for (const feed of feeds) {
         let test = feed.split(/,\s?/);
@@ -43,7 +45,7 @@ app.post('/chart', (req, res) => {
     runTest(testOptions)
         .then( testResults => createChart(testOptions, testResults))
         .then( chart => {
-            res.render('../public/chart.ejs', {chartData: chart.data, chartOptions: chart.options, pageData: chart.pageData} );
+            res.render('../public/chart.ejs', {chartData: chart.data, chartOptions: chart.options, pageOptions: chart.pageOptions} );
             console.log('Chart complete!');
         });
     
@@ -55,11 +57,15 @@ const port = 4000;
 app.listen(port, () => console.log(`Generate chart at http://localhost:${port} and replace localhost with a server IP`));
 
 function createChart(testOptions, testResults) {
+    if (testOptions.verbose) console.log(testResults);
 
-    // let testKb = Math.round(testResults.bytes / 1024 * 10) / 10;
-    // let testKbGzip = Math.round(testResults.bytesGzip / 1024 * 10) / 10;
+    let testKb = Math.round(testResults.sourceBytes / 1024 * 10) / 10;
+    let subtitle = `Source: ${testKb} KB uncompressed`;
 
-    // if (gzip) layout.title +=  ` / ${testKbGzip} KB Gzip`;
+    if (testOptions.gzip) {
+        let testKbGzip = Math.round(testResults.sourceBytesGzip / 1024 * 10) / 10;
+        subtitle +=  ` / ${testKbGzip} KB Gzip`;
+    }
 
     chartColumns = [
         'Feed host',
@@ -74,6 +80,12 @@ function createChart(testOptions, testResults) {
             'Gzip Median',
             '× Gzip Median Benchmark',
         );
+    }
+
+    if (testOptions.runs > 1) {
+        runsLabel = 'runs';
+    } else {
+        runsLabel = 'run';
     }
 
     let chartRows = new Array;
@@ -102,9 +114,11 @@ function createChart(testOptions, testResults) {
 
     let chart = new Object;
     
-    chart.pageData = {
-        title: 'Feed performance',
-        subtitle: '',
+    chart.pageOptions = {
+        // title: testOptions.title + ' feed performance',
+        // subtitle: '',
+        image: testOptions.image,
+        table: testOptions.table,
     }
     
     chart.data = [
@@ -115,9 +129,14 @@ function createChart(testOptions, testResults) {
     chart.options = {
         width: '100%',
         height: 600,
+        title: `${testOptions.title} feed performance (${testOptions.runs} ${runsLabel})`,
+        titleTextStyle: {
+            fontSize: 24,
+            bold: false,
+        },
         chartArea: {
             width: '85%',
-            height: '80%',
+            height: '75%',
             // left:10,
             // top:100,
         },
@@ -133,9 +152,13 @@ function createChart(testOptions, testResults) {
         vAxis: {
             title: 'Loading time (ms)',
         },
-        // hAxis: {title: 'Feed host'},
+        hAxis: {
+            title: subtitle,
+        },
         legend: {
             maxLines: 2,
+            position: 'top',
+            alignment: 'center',
         },
         series: {
             2: {

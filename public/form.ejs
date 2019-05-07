@@ -10,12 +10,9 @@
 <body>
 	<div class="container">
 
-		<h1>Form!</h1>
+		<h1>Set your feed test options</h1>
 		<form class="form-horizontal" action="/chart/" method="post">
 			<fieldset>
-
-				<!-- Form Name -->
-				<legend>Form Name</legend>
 
 				<!-- Text input-->
 				<div class="form-group">
@@ -62,7 +59,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="runs">How many times to test each feed?</label>
 					<div class="col-md-2">
-						<input id="runs" name="runs" type="text" placeholder="10" class="form-control input-md">
+						<input id="runs" name="runs" type="text" placeholder="default 10" class="form-control input-md">
 					</div>
 				</div>
 
@@ -73,19 +70,31 @@
 						<div class="checkbox">
 							<label for="options-0">
 								<input type="checkbox" name="gzip" id="options-0" value="true">
-								Check Gzip
+								Check Gzip compression
 							</label>
 						</div>
 						<div class="checkbox">
 							<label for="options-1">
-								<input type="checkbox" name="verbose" id="options-1" value="true">
-								Verbose node.js log
+								<input type="checkbox" name="http2" id="options-1" value="true">
+								Check HTTP/2
 							</label>
 						</div>
 						<div class="checkbox">
 							<label for="options-2">
-								<input type="checkbox" name="http2" id="options-2" value="true">
-								Check HTTP2
+								<input type="checkbox" name="image" id="options-2" value="true">
+								Generate PNG image
+							</label>
+						</div>
+						<div class="checkbox">
+							<label for="options-4">
+								<input type="checkbox" name="table" id="options-4" value="true">
+								Show data table
+							</label>
+						</div>
+						<div class="checkbox">
+							<label for="options-3">
+								<input type="checkbox" name="verbose" id="options-3" value="true">
+								Verbose node.js log
 							</label>
 						</div>
 					</div>
