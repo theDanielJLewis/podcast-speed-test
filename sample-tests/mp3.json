@@ -1,0 +1,34 @@
+{
+    "title": "tap229.mp3",
+    "tests": [
+        {
+            "label": "Libsyn",
+            "url": "https://traffic.libsyn.com/noodlemx/tap229.mp3"
+        },
+        {
+            "label": "Spreaker",
+            "url": "https://api.spreaker.com/v2/episodes/6413032/download.mp3"
+        },
+        {
+            "label": "SoundCloud",
+            "url": "http://feeds.soundcloud.com/stream/617145513-noodlemx-how-to-get-the-most-from-podcasting-and-social-media-conferences-tap229.mp3"
+        },
+        {
+            "label": "Podbean",
+            "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
+        },
+        {
+            "label": "Buzzsprout",
+            "url": "https://www.buzzsprout.com/164223/1103234-tap229-for-testing.mp3"
+        },
+        {
+            "label": "Anchor (Amazon S3)",
+            "url": "https://s3-us-west-2.amazonaws.com/anchor-audio-bank/production/2019-4-7/14241309-44100-1-3a2c1b3de487d.mp3"
+        },
+        {
+            "label": "Amazon S3",
+            "url": "https://s3.amazonaws.com/the-audacity-to-podcast/tap229.mp3"
+        }
+        
+    ]
+}
