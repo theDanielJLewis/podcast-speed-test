@@ -22,6 +22,7 @@ app.get('/', (req,res) => {
 });
 
 app.post('/chart', (req, res) => {
+    req.setTimeout((5*60*1000));
     const query = req.body;
     let testOptions = {
         title: query.title,
@@ -31,11 +32,13 @@ app.post('/chart', (req, res) => {
         verbose: Boolean(query.verbose) || argv['v'] || argv['verbose'],
         gzip: Boolean(query.gzip) || argv['gzip'] || argv['compression'],
         http2: Boolean(query.http2) || argv['http2'],
-        benchmark: false,
+        benchmark: Boolean(query.benchmark) || argv['benchmark'],
         location: query.location || argv['location'],
         image: Boolean(query.image),
-        table: Boolean(query.table)
+        table: Boolean(query.table),
+        showNumbers: query.showNumbers,
     };
+    
     if (testOptions.verbose) console.log('Form data', req.body);
 
     for (let index = 0; index < query.feeds.length; index++) {
@@ -52,7 +55,6 @@ app.post('/chart', (req, res) => {
             });
         }  
     }
-    if (testOptions.tests.length > 1 ) testOptions.benchmark = true;
 
     if (testOptions.verbose) console.log(testOptions);
 

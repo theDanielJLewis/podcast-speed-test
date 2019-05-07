@@ -8,159 +8,182 @@
 </head>
 
 <body>
-	<div class="container">
+<div class="container">
 
-		<h1>Test Feed Speed</h1>
-		<p>Measure and compare podcast RSS feed performance.</p>
-		<h2>Test options</h2>
-		<form action="/chart/" method="post">
-			<fieldset>
+	<h1>Test Feed Speed</h1>
+	<p>Measure and compare podcast RSS feed performance.</p>
+	<h2>Test options</h2>
+	<form action="/chart/" method="post">
+		<fieldset>
 
-				<!-- Select Basic -->
-				<div class="form-group">
-					<label class="control-label" for="test">Select a sample test or leave blank to enter your own feed(s) below</label>
-					<select id="test" name="test" class="form-control col-4">
-						<option></option>
-						<% sampleTests.forEach( sampleTest => { %>
-							<option value="<%= sampleTest.replace('.json','') %>"><%= sampleTest.replace('.json','') %></option>
-						<% }); %>
-					</select>
-				</div>
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="control-label" for="test">Select a sample test or leave blank to enter your own feed(s) below</label>
+				<select id="test" name="test" class="form-control col-4">
+					<option></option>
+					<% sampleTests.forEach( sampleTest => { %>
+						<option value="<%= sampleTest.replace('.json','') %>"><%= sampleTest.replace('.json','') %></option>
+					<% }); %>
+				</select>
+			</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="control-label" for="title">Test title</label>
-					<input class="form-control col-4" id="title" name="title" type="text">
-				</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="control-label" for="title">Test title</label>
+				<input class="form-control col-4" id="title" name="title" type="text">
+			</div>
 
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="row">
-						<div class="col-4">
-							<label for="title">Label</label>
-							<input id="label1" name="feeds[1]" type="text" class="form-control">
-						</div>
-						<div class="col-8">
-							<label for="title">Feed</label>
-							<input id="feed1" name="feeds[1]" type="text" class="form-control">
-						</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<div class="row">
+					<div class="col-4">
+						<label for="title">Label</label>
+						<input id="label1" name="feeds[1]" type="text" class="form-control">
+					</div>
+					<div class="col-8">
+						<label for="title">Feed</label>
+						<input id="feed1" name="feeds[1]" type="text" class="form-control">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-4">
-							<input id="label2" name="feeds[2]" type="text" class="form-control">
-						</div>
-						<div class="col-8">
-							<input id="feed2" name="feeds[2]" type="text" class="form-control">
-						</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-4">
+						<input id="label2" name="feeds[2]" type="text" class="form-control">
+					</div>
+					<div class="col-8">
+						<input id="feed2" name="feeds[2]" type="text" class="form-control">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-4">
-							<input id="label3" name="feeds[3]" type="text" class="form-control">
-						</div>
-						<div class="col-8">
-							<input id="feed3" name="feeds[3]" type="text" class="form-control">
-						</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-4">
+						<input id="label3" name="feeds[3]" type="text" class="form-control">
+					</div>
+					<div class="col-8">
+						<input id="feed3" name="feeds[3]" type="text" class="form-control">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-4">
-							<input id="label4" name="feeds[4]" type="text" class="form-control">
-						</div>
-						<div class="col-8">
-							<input id="feed4" name="feeds[4]" type="text" class="form-control">
-						</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-4">
+						<input id="label4" name="feeds[4]" type="text" class="form-control">
+					</div>
+					<div class="col-8">
+						<input id="feed4" name="feeds[4]" type="text" class="form-control">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-4">
-							<input id="label5" name="feeds[5]" type="text" class="form-control">
-						</div>
-						<div class="col-8">
-							<input id="feed5" name="feeds[5]" type="text" class="form-control">
-						</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-4">
+						<input id="label5" name="feeds[5]" type="text" class="form-control">
+					</div>
+					<div class="col-8">
+						<input id="feed5" name="feeds[5]" type="text" class="form-control">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="row">
-						<div class="col-4">
-							<input id="label1" name="feeds[6]" type="text" class="form-control">
-						</div>
-						<div class="col-8">
-							<input id="feed1" name="feeds[6]" type="text" class="form-control">
-						</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-4">
+						<input id="label1" name="feeds[6]" type="text" class="form-control">
+					</div>
+					<div class="col-8">
+						<input id="feed1" name="feeds[6]" type="text" class="form-control">
 					</div>
 				</div>
+			</div>
 
-				<%# <!-- Text input-->
-				<div class="form-group">
-					<label class="col control-label" for="location">Test location/scenario label</label>
-					<div class="col">
-						<input id="location" name="location" type="text" placeholder="Cincinnati"
-							class="form-control input-md">
-						<span class="help-block">If you want to distinguish tests from different locations or
-							scenarios.</span>
-					</div>
+			<%# <!-- Text input-->
+			<div class="form-group">
+				<label class="col control-label" for="location">Test location/scenario label</label>
+				<div class="col">
+					<input id="location" name="location" type="text" placeholder="Cincinnati"
+						class="form-control input-md">
+					<span class="help-block">If you want to distinguish tests from different locations or
+						scenarios.</span>
+				</div>
+			</div> %>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="control-label" for="runs">How many times to test each feed?</label>
+				<input class="form-control col-2" id="runs" name="runs" type="text" placeholder="default 10">
+			</div>
+
+			<%# <!-- Reporting options -->
+			<div class="form-group">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="showNumbers" id="showNumbers1" value="both" checked>
+					<label class="form-check-label" for="showNumbers1">Show average and median</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="showNumbers" id="showNumbers2" value="avgOnly">
+					<label class="form-check-label" for="showNumbers2">Show average only</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="showNumbers" id="showNumbers3" value="medOnly">
+					<label class="form-check-label" for="showNumbers3">Show median only</label>
+				</div>
+			</div> %>
+
+			<!-- Multiple Checkboxes -->
+			<div class="form-group">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="gzip" id="gzip" value="true">
+					<label class="form-check-label" for="gzip">Check Gzip compression (recommendation: off for media, on for feeds)</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="benchmark" id="benchmark" value="true">
+					<label class="form-check-label" for="benchmark">Include benchmark comparison (recommendation: off for media, on for feeds)</label>
+				</div>
+				<%# <div class="form-check">
+					<input class="form-check-input" type="checkbox" name="http2" id="http2" value="true">
+					<label class="form-check-label" for="http2">Check HTTP/2</label>
 				</div> %>
-
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="control-label" for="runs">How many times to test each feed?</label>
-					<input class="form-control col-2" id="runs" name="runs" type="text" placeholder="default 10">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="image" id="image" value="true">
+					<label class="form-check-label" for="image">Generate PNG image</label>
 				</div>
-
-				<!-- Multiple Checkboxes -->
-				<div class="form-group">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" name="gzip" id="gzip" value="true">
-						<label class="form-check-label" for="gzip">Check Gzip compression</label>
-					</div>
-					<%# <div class="form-check">
-						<input class="form-check-input" type="checkbox" name="http2" id="http2" value="true">
-						<label class="form-check-label" for="http2">Check HTTP/2</label>
-					</div> %>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" name="image" id="image" value="true">
-						<label class="form-check-label" for="image">Generate PNG image</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" name="table" id="table" value="true">
-						<label class="form-check-label" for="table">Show data table</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" name="verbose" id="verbose" value="true">
-						<label class="form-check-label" for="verbose">Verbose node.js log</label>
-					</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="table" id="table" value="true">
+					<label class="form-check-label" for="table">Show data table</label>
 				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" name="verbose" id="verbose" value="true">
+					<label class="form-check-label" for="verbose">Verbose node.js log</label>
+				</div>
+			</div>
 
-				<!-- Button -->
-				<button id="submit" type="submit" class="btn btn-primary">Start test</button>
+			<!-- Button -->
+			<button id="submit" type="submit" class="btn btn-primary">Start test</button>
 
-			</fieldset>
-		</form>
+		</fieldset>
+	</form>
 
-		<h2>Instructions</h2>
-		<p>You must first decide how you want to use Test Feed Speed:</p>
-		<ol>
-			<li>To test and benchmark the same feed with different hosts</li>
-			<li>To test a single podcast RSS feed's performance</li>
-		</ol>
-		<h3>1. Testing different hosts</h3>
-		<p>Test Feed Speed is packaged with several sample tests. You can test with one of these or duplicate and edit the demo.json files in the "sample-tests" folder to make your own sample test. These sample tests will let you see the performance of various podcast feed hosts and they work great if you want to quickly test the same hosts from multiple locations by cloning this test to different servers.</p>
-		<p>Or, you can enter up to six feeds to test and compare with each other. The comparison is only fair if the RSS feed is nearly identical with each host. For example, mirroring the same PowerPress feed across different web hosts or server configurations, or mirroring any source feed to FeedBurner or Podcast Mirror.</p>
-		<p>Enter a label and URL for each feed you want to compare. If you omit the label, the feed URL will be used instead (and may result in a cluttered chart). The test will chart the average and media performance of each URL, with optional additional tests for Gzip compression or HTTP/2.</p>
-		<h3>2. Testing a single feed</h3>
-		<p>If you have only one feed to test, simple enter that feed URL and an optional label. The test will chart the average and media performance, with optional additional tests for Gzip compression or HTTP/2.</p>
-		<p>Test Feed Speed is ideal for comparing identical feeds, but even a single feed will help you see how quickly it loads (from the test's hosted location) and the uncompressed and optional compressed sizes of the feed.</p>
+	<h2>Instructions</h2>
+	<p>You must first decide how you want to use Test Feed Speed:</p>
+	<ol>
+		<li>To test and benchmark the same feed with different hosts</li>
+		<li>To test a single podcast RSS feed's performance</li>
+	</ol>
+	<h3>1. Testing different hosts</h3>
+	<p>Test Feed Speed is packaged with several sample tests. You can test with one of these or duplicate and edit the demo.json files in the "sample-tests" folder to make your own sample test. These sample tests will let you see the performance of various podcast feed hosts and they work great if you want to quickly test the same hosts from multiple locations by cloning this test to different servers.</p>
+	<p>Or, you can enter up to six feeds to test and compare with each other. The comparison is only fair if the RSS feed is nearly identical with each host. For example, mirroring the same PowerPress feed across different web hosts or server configurations, or mirroring any source feed to FeedBurner or Podcast Mirror.</p>
+	<p>Enter a label and URL for each feed you want to compare. If you omit the label, the feed URL will be used instead (and may result in a cluttered chart). The test will chart the average and media performance of each URL, with optional additional tests for Gzip compression or HTTP/2.</p>
+	<h3>2. Testing a single feed</h3>
+	<p>If you have only one feed to test, simple enter that feed URL and an optional label. The test will chart the average and media performance, with optional additional tests for Gzip compression or HTTP/2.</p>
+	<p>Test Feed Speed is ideal for comparing identical feeds, but even a single feed will help you see how quickly it loads (from the test's hosted location) and the uncompressed and optional compressed sizes of the feed.</p>
 
-		<p>Created by Daniel J. Lewis from <a href="https://theaudacitytopodcast.com/">The Audacity to Podcast</a>. &copy; 2019 D.Joseph Design LLC.</p>
+	<p>Created by Daniel J. Lewis from <a href="https://theaudacitytopodcast.com/">The Audacity to Podcast</a>. &copy; 2019 D.Joseph Design LLC.</p>
 
-	</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

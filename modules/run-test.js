@@ -29,8 +29,6 @@ function runTest(testOptions) {
             // file: jsonTest.file,
             results: []
         };
-
-        if (testOptions.tests.length > 1 ) testOptions.benchmark = true;
         
         async.timesLimit(testOptions.tests.length, 1, (test, eachCallback) => {
             let url = testOptions.tests[test];

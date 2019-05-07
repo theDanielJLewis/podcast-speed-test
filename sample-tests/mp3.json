@@ -22,12 +22,24 @@
             "url": "https://www.buzzsprout.com/164223/1103234-tap229-for-testing.mp3"
         },
         {
+            "label": "Blubrry",
+            "url": "https://content.blubrry.com/myawesomepodcast/tap229.mp3"
+        },
+        {
+            "label": "Bunny CDN",
+            "url": "https://noodlemix.b-cdn.net/theaudacitytopodcast/tap229.mp3"
+        },
+        {
             "label": "Anchor (Amazon S3)",
             "url": "https://s3-us-west-2.amazonaws.com/anchor-audio-bank/production/2019-4-7/14241309-44100-1-3a2c1b3de487d.mp3"
         },
         {
             "label": "Amazon S3",
             "url": "https://s3.amazonaws.com/the-audacity-to-podcast/tap229.mp3"
+        },
+        {
+            "label": "Archive.org",
+            "url": "https://archive.org/download/tap229/tap229.mp3"
         }
         
     ]
