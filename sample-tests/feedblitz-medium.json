@@ -1,0 +1,21 @@
+{
+    "title": "FeedBlitz medium",
+    "tests": [
+        {
+            "label": "WP + PowerPress",
+            "url": "https://www.evanmarckatz.com/blog/feed"
+        },
+        {
+            "label": "FeedBlitz",
+            "url": "https://feeds.feedblitz.com/evanmarckatz"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/feedblitz-medium"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/feedblitz-medium"
+        }
+    ]
+}

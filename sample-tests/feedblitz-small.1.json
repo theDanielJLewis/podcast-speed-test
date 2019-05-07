@@ -1,0 +1,21 @@
+{
+    "title": "FeedBlitz small",
+    "tests": [
+        {
+            "label": "WP + PowerPress",
+            "url": "https://cleancomedypodcast.com/feed/podcast"
+        },
+        {
+            "label": "FeedBlitz",
+            "url": "https://feeds.feedblitz.com/eastmeetswest"
+        },
+        {
+            "label": "FeedBurner",
+            "url": "https://feeds.feedburner.com/theRamenNoodle"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/theramennoodle"
+        }
+    ]
+}
