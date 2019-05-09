@@ -18,8 +18,16 @@
             "url": "https://api.spreaker.com/v2/episodes/6413032/download.mp3"
         },
         {
-            "label": "Podbean",
+            "label": "Podbean Premium",
             "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
+        },
+        {
+            "label": "Podbean Unlimited Plus",
+            "url": "https://theaudacitytopodcastplus.podbean.com/mf/play/z4u4q8/tap229-podbeanplus.mp3"
+        },
+        {
+            "label": "Podbean Business Basic",
+            "url": "https://theaudacitytopodcastbiz.podbean.com/mf/play/n9jbk6/tap229-podbeanbiz.mp3"
         },
         {
             "label": "Captivate",
