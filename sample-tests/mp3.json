@@ -6,31 +6,32 @@
             "url": "https://traffic.libsyn.com/noodlemx/tap229.mp3"
         },
         {
-            "label": "Spreaker",
-            "url": "https://api.spreaker.com/v2/episodes/6413032/download.mp3"
-        },
-        {
-            "label": "SoundCloud",
-            "url": "http://feeds.soundcloud.com/stream/617145513-noodlemx-how-to-get-the-most-from-podcasting-and-social-media-conferences-tap229.mp3"
-        },
-        {
-            "label": "Podbean",
-            "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
+            "label": "Blubrry",
+            "url": "https://media.blubrry.com/myawesomepodcast/content.blubrry.com/myawesomepodcast/tap229.mp3"
         },
         {
             "label": "Buzzsprout",
             "url": "https://www.buzzsprout.com/164223/1103234-tap229-for-testing.mp3"
         },
         {
-            "label": "Blubrry",
-            "url": "https://media.blubrry.com/myawesomepodcast/content.blubrry.com/myawesomepodcast/tap229.mp3"
+            "label": "Spreaker",
+            "url": "https://api.spreaker.com/v2/episodes/6413032/download.mp3"
         },
         {
-            "label": "Bunny CDN",
-            "url": "https://noodlemix.b-cdn.net/theaudacitytopodcast/tap229.mp3"
+            "label": "Podbean",
+            "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
         },
         {
-            "label": "Anchor (Amazon Cloudfront)",
+            "label": "Podmio (S3)",
+            "thanks": "Podrick Scuadrick", 
+            "url": "https://podmiodotcom.s3.amazonaws.com/PodScure/5cd3928f4247a-tap229.mp3"
+        },
+        {
+            "label": "SoundCloud",
+            "url": "http://feeds.soundcloud.com/stream/617145513-noodlemx-how-to-get-the-most-from-podcasting-and-social-media-conferences-tap229.mp3"
+        },
+        {
+            "label": "Anchor (Cloudfront)",
             "url": "https://anchor.fm/s/b301064/podcast/play/3169651/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2019-4-7%2F14241309-44100-1-3a2c1b3de487d.mp3"
         },
         {
@@ -40,7 +41,10 @@
         {
             "label": "Archive.org",
             "url": "https://archive.org/download/tap229/tap229.mp3"
-        }
-        
+        },
+        {
+            "label": "Bunny CDN",
+            "url": "https://noodlemix.b-cdn.net/theaudacitytopodcast/tap229.mp3"
+        }   
     ]
 }
