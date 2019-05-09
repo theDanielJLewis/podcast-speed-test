@@ -23,7 +23,8 @@
     "minimist": "^1.2.0",
     "mustache": "^3.0.1",
     "plotly": "^1.0.6",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "time-diff": "^0.3.1"
   },
   "directories": {
     "test": "tests"

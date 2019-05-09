@@ -4,8 +4,8 @@ const argv = require('minimist')(process.argv.slice(2));
 const runTest = require('./run-test.js');
 const testFolder = './sample-tests/';
 const fs = require('fs');
-
-
+var Time = require('time-diff');
+var time = new Time();
 
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
@@ -22,7 +22,8 @@ app.get('/', (req,res) => {
 });
 
 app.post('/chart', (req, res) => {
-    req.setTimeout((5*60*1000));
+    time.start('timer');
+    req.setTimeout((10*60*1000));
     const query = req.body;
     let testOptions = {
         title: query.title,
@@ -62,7 +63,7 @@ app.post('/chart', (req, res) => {
         .then( testResults => createChart(testOptions, testResults))
         .then( chart => {
             res.render('../public/chart.ejs', {chartData: chart.data, chartOptions: chart.options, pageOptions: chart.pageOptions} );
-            console.log('Chart complete!');
+            console.log(`Chart complete in ${time.end('timer')}`);
         });
 
 });
@@ -168,6 +169,8 @@ function createChart(testOptions, testResults) {
         },
         hAxis: {
             title: subtitle,
+            slantedTextAngle: 90,
+            maxTextLines: 2,
         },
         legend: {
             maxLines: 2,
