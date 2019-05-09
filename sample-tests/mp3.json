@@ -22,6 +22,10 @@
             "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
         },
         {
+            "label": "Captivate",
+            "url": "https://cdn.captivate.fm/media/68849b4f-f067-432a-a8a5-e37350440f85/tap229.mp3"
+        },
+        {
             "label": "Podmio (S3)",
             "thanks": "Podrick Scuadrick", 
             "url": "https://podmiodotcom.s3.amazonaws.com/PodScure/5cd3928f4247a-tap229.mp3"
