@@ -39,6 +39,11 @@
             "url": "https://pinecast.com/listen/25e58b22-867a-4c9c-af4a-f30e28ab8b3f.mp3"
         },
         {
+            "label": "Omny Studio",
+            "thanks": "Adam Jaffrey from Wavelength Creative https://wavelengthcreative.com/",
+            "url": "https://traffic.omny.fm/d/clips/53b6fe2a-4ef6-4356-ae92-a61500df6da0/c89b8268-1e01-444f-974f-aa4c016a64c7/8c05b3d3-ad81-47e1-a056-aa4c016ac654/audio.mp3"
+        },
+        {
             "label": "Podmio (S3)",
             "thanks": "Podrick Scuadrick", 
             "url": "https://podmiodotcom.s3.amazonaws.com/PodScure/5cd3928f4247a-tap229.mp3"
