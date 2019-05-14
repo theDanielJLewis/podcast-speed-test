@@ -145,7 +145,7 @@ function createChart(testOptions, testResults) {
     
     chart.options = {
         width: '100%',
-        height: 600,
+        height: 700,
         title: `${testOptions.title} feed performance (${testOptions.runs} ${runsLabel})`,
         titleTextStyle: {
             fontSize: 24,
@@ -153,9 +153,10 @@ function createChart(testOptions, testResults) {
         },
         chartArea: {
             width: '85%',
-            height: '75%',
+            height: '70%',
             // left:10,
             // top:100,
+            bottom: 150,
         },
         colors: [
             'rgb(50,100,150)',
@@ -169,7 +170,7 @@ function createChart(testOptions, testResults) {
         },
         hAxis: {
             title: subtitle,
-            slantedTextAngle: 90,
+            // slantedTextAngle: 90,
             maxTextLines: 2,
         },
         legend: {

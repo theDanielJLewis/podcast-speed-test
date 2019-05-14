@@ -18,7 +18,7 @@
             "url": "https://api.spreaker.com/v2/episodes/6413032/download.mp3"
         },
         {
-            "label": "Podbean Premium",
+            "label": "Podbean Unlimited Audio",
             "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
         },
         {
@@ -39,6 +39,10 @@
             "url": "https://pinecast.com/listen/25e58b22-867a-4c9c-af4a-f30e28ab8b3f.mp3"
         },
         {
+            "label": "RedCircle",
+            "url": "https://api.podcache.net/episodes/430923dd-5c4b-4761-8146-8b2e0430692f/stream.mp3"
+        },
+        {
             "label": "Omny Studio",
             "thanks": "Adam Jaffrey from Wavelength Creative https://wavelengthcreative.com/",
             "url": "https://traffic.omny.fm/d/clips/53b6fe2a-4ef6-4356-ae92-a61500df6da0/c89b8268-1e01-444f-974f-aa4c016a64c7/8c05b3d3-ad81-47e1-a056-aa4c016ac654/audio.mp3"
@@ -55,6 +59,10 @@
         {
             "label": "Anchor (Cloudfront)",
             "url": "https://anchor.fm/s/b301064/podcast/play/3169651/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2019-4-7%2F14241309-44100-1-3a2c1b3de487d.mp3"
+        },
+        {
+            "label": "Audioboom",
+            "url": "https://audioboom.com/posts/3415147-how-to-get-the-most-from-podcasting-and-social-media-conferences-tap229.mp3"
         },
         {
             "label": "Amazon S3",
