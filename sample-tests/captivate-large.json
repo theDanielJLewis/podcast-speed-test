@@ -1,0 +1,13 @@
+{
+    "title": "Captivate.fm large",
+    "tests": [
+        {
+            "label": "Captivate.fm",
+            "url": "https://feeds.captivate.fm/7mmvol4/"
+        },
+        {
+            "label": "Podcast Mirror",
+            "url": "https://feeds.podcastmirror.com/captivate-large"
+        }
+    ]
+}
