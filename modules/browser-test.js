@@ -23,7 +23,7 @@ app.get('/', (req,res) => {
 
 app.post('/chart', (req, res) => {
     time.start('timer');
-    req.setTimeout((10*60*1000));
+    req.setTimeout((15*60*1000));
     const query = req.body;
     let testOptions = {
         title: query.title,
