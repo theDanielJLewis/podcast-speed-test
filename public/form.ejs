@@ -20,7 +20,7 @@
 			<div class="form-group">
 				<label class="control-label" for="test">Select a sample test or leave blank to enter your own feed(s) below</label>
 				<select id="test" name="test" class="form-control col-4">
-					<option value="">Custom test</option>
+					<option></option>
 					<% sampleTests.forEach( sampleTest => { %>
 						<option value="<%= sampleTest.replace('.json','') %>"><%= sampleTest.replace('.json','') %></option>
 					<% }); %>
