@@ -1,11 +1,11 @@
 {
-  "name": "test-feed-speed",
+  "name": "podcast-speed-test",
   "version": "1.0.0",
   "description": "Test the speed an RSS feed. This is ideal for raw server speed testing, as it loads only the data at the URL, not any of the embeds or links.",
-  "main": "test.js",
+  "main": "podcast-speed-test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node test.js"
+    "start": "node podcast-speed-test.js"
   },
   "author": "Daniel J. Lewis",
   "license": "ISC",
