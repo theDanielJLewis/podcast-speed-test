@@ -40,19 +40,21 @@ app.post('/chart', (req, res) => {
         showNumbers: query.showNumbers,
     };
     
-    if (testOptions.verbose) console.log('Form data', req.body);
+    // if (testOptions.verbose) console.log('Form data', req.body);
 
-    for (let index = 0; index < query.feeds.length; index++) {
-        const feed = query.feeds[index];
-        if ( feed[0] && feed[1] ) {
+    for (let index = 0; index < query.urls.length; index++) {
+        const label = query.labels[index];
+        const url = query.urls[index];
+        // console.log(label,url);
+        if ( label && url ) {
             testOptions.tests.push({
-                label: feed[0],
-                url: feed[1]
+                label,
+                url
             });
-        } else if ( ! feed[0] && feed[1] ) {
+        } else if ( ! label && url ) {
             testOptions.tests.push({
-                label: feed[1],
-                url: feed[1]
+                label: url,
+                url
             });
         }  
     }
@@ -146,7 +148,7 @@ function createChart(testOptions, testResults) {
     chart.options = {
         width: '100%',
         height: 700,
-        title: `${testOptions.title} feed performance (${testOptions.runs} ${runsLabel})`,
+        title: `${testOptions.title} performance (${testOptions.runs} ${runsLabel})`,
         titleTextStyle: {
             fontSize: 24,
             bold: false,

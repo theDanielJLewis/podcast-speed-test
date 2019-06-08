@@ -80,6 +80,14 @@
             "label": "SiteGround",
             "thanks": "Bryan Entzminger from Engaging Missions",
             "url": "https://engagingmissions.com/tap229.mp3"
-        }   
+        }, 
+        {
+            "label": "Simplecast",
+            "url": "https://cdn.simplecast.com/audio/4e691d/4e691d74-651f-48c2-b522-33bb222458e4/aedfd76b-9264-4753-8137-51e68bc87957/tap229_tc.mp3"
+        },
+        {
+            "label": "Whooshka",
+            "url": "https://media.whooshkaa.com/podcasts/7689/episodes/382585/805cdd/26d030-tap229.mp3"
+        }
     ]
 }
