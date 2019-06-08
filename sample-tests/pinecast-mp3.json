@@ -1,0 +1,9 @@
+{
+    "title": "Pinecast MP3",
+    "tests": [
+        {
+            "label": "Pinecast",
+            "url": "https://pinecast.com/listen/3531a723-d54f-4192-88c7-d0ced22fbb51.mp3"
+        }
+    ]
+}
