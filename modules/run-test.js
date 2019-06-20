@@ -42,6 +42,7 @@ function runTest(testOptions) {
                     request(url.url, { ...reqOptions, disableHttp2: true }, (error, response, body) => {
                         // console.log(response.timingPhases.total);
                         url.runResults.push(Math.round(response.timingPhases.total));
+                        if (testOptions.verbose) console.log(url, response.timingPhases.total);
                         // url.average = Math.round(average(url.runResults));
                         // url.median = median(url.runResults);
                         if (index === 0 ) {
