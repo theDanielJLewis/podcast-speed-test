@@ -13,6 +13,7 @@
     "argv": "0.0.2",
     "async": "^2.6.2",
     "body-parser": "^1.19.0",
+    "bottleneck": "^2.19.0",
     "consolidate": "^0.15.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
@@ -24,7 +25,8 @@
     "mustache": "^3.0.1",
     "plotly": "^1.0.6",
     "request": "^2.88.0",
-    "time-diff": "^0.3.1"
+    "time-diff": "^0.3.1",
+    "vultr": "0.0.9"
   },
   "directories": {
     "test": "tests"
