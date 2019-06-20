@@ -42,7 +42,7 @@ function runTest(testOptions) {
                     request(url.url, { ...reqOptions, disableHttp2: true }, (error, response, body) => {
                         // console.log(response.timingPhases.total);
                         url.runResults.push(Math.round(response.timingPhases.total));
-                        if (testOptions.verbose) console.log(url, response.timingPhases.total);
+                        if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
                         // url.average = Math.round(average(url.runResults));
                         // url.median = median(url.runResults);
                         if (index === 0 ) {
@@ -59,6 +59,7 @@ function runTest(testOptions) {
                         
                         if (testOptions.gzip) {
                             request(url.url, { ...reqOptions, disableHttp2: true, gzip: true }, (error, response, body) => {
+                                if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
                                 if (index === 0 ) {
                                     url.bytesGzip = Number(response.headers['content-length']) || gzipSize.sync(body);
                                     // url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
@@ -79,6 +80,7 @@ function runTest(testOptions) {
                             });    
                         } else if (testOptions.http2) {
                             request(url.url, { ...reqOptions }, (error, response, body) => {
+                                if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
                                 if (error) {
                                     // console.log(error);
                                     // timesCallback(error);
