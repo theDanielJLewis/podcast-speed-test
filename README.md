@@ -1,11 +1,11 @@
-Test the speed an RSS feed and render a chart. This is ideal for raw server speed testing, as it loads only the data at the URL, not any of the embeds or links.
+Download performance test designed for podcast media and feeds. This is ideal for raw server speed testing, as it loads only the data at the URL, not any of the embeds or links.
 
 ## Installation
 
 This script requires Node.js 10.15 or higher. To install:
 
 ```shell
-git clone https://github.com/theDanielJLewis/test-feed-speed.git
+git clone https://github.com/theDanielJLewis/podcast-speed-test.git
 cd test-feed-speed/
 npm i
 ```
