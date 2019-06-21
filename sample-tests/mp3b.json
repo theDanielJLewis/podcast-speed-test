@@ -2,28 +2,12 @@
     "title": "tap229.mp3",
     "tests": [
         {
-            "label": "Pippa",
-            "url": "https://app.pippa.io/public/streams/5d0bfb6c743c931c4038ebd0/episodes/5d0bfbd73a6bc29b6b83be0c.mp3"
+            "label": "Podigee (35.7 MB)",
+            "url": "https://cdn.podigee.com/media/podcast_11897_my_awesome_podcast_episode_1_tap229.m4a?v=1561140091&amp;source=feed"
         },
         {
-            "label": "podOmatic*",
-            "url": "https://danieljlewis.podomatic.com/enclosure/2019-06-18T20_32_34-07_00.mp3"
-        },
-        {
-            "label": "Castos",
-            "url": "https://episodes.castos.com/myawesomepodcast/tap229.mp3"
-        },
-        {
-            "label": "Podiant",
-            "url": "https://tracking.podiant.co/d/spoke/myawesomepodcast/episodes/3775d34eec0290/primary/1561067415.mp3"
-        },
-        {
-            "label": "Fireside",
-            "url": "https://aphid.fireside.fm/d/1437767933/d90d4283-7004-46be-acc5-705d07c3a47f/377dbbe6-de78-4a9f-960d-78cc922322f1.mp3"
-        },
-        {
-            "label": "Podserve.fm",
-            "url": "https://www.podserve.fm/episodes/2716/tap229.mp3"
+            "label": "iVoox*",
+            "url": "http://us.ivoox.com/en/tap229_mf_37408947_feed_1.mp3"
         }
     ]
 }

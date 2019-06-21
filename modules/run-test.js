@@ -38,64 +38,61 @@ function runTest(testOptions) {
             if (testOptions.gzip) url.runResultsGzip = [];
         
             async.timesLimit(testOptions.runs, 1, (index, timesCallback) => {
-                // setTimeout(() => {
-                    request(url.url, { ...reqOptions, disableHttp2: true }, (error, response, body) => {
-                        // console.log(response.timingPhases.total);
-                        url.runResults.push(Math.round(response.timingPhases.total));
-                        if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
-                        // url.average = Math.round(average(url.runResults));
-                        // url.median = median(url.runResults);
-                        if (index === 0 ) {
-                            url.bytes = body.length;
-                            // if (addLabel) url.label += labelAppend;
-                            // if (! gzip) {
-                            //     url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
-                            // }
-                            // if ()
-                            if ( test === 0 ) {
-                                testResults.sourceBytes = url.bytes;
-                            }
+                request(url.url, { ...reqOptions, disableHttp2: true }, (error, response, body) => {
+                    url.runResults.push(Math.round(response.timingPhases.total));
+                    if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
+                    // url.average = Math.round(average(url.runResults));
+                    // url.median = median(url.runResults);
+                    if (index === 0 ) {
+                        url.bytes = body.length;
+                        // if (addLabel) url.label += labelAppend;
+                        // if (! gzip) {
+                        //     url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB)`;
+                        // }
+                        // if ()
+                        if ( test === 0 ) {
+                            testResults.sourceBytes = url.bytes;
                         }
-                        
-                        if (testOptions.gzip) {
-                            request(url.url, { ...reqOptions, disableHttp2: true, gzip: true }, (error, response, body) => {
-                                if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
-                                if (index === 0 ) {
-                                    url.bytesGzip = Number(response.headers['content-length']) || gzipSize.sync(body);
-                                    // url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
-                                    // if (addLabel) url.label += labelAppend;
-                                    if ( test === 0 ) {
-                                        testResults.sourceBytesGzip = Number(url.bytesGzip);
-                                    }        
+                    }
+                    
+                    if (testOptions.gzip) {
+                        request(url.url, { ...reqOptions, disableHttp2: true, gzip: true }, (error, response, body) => {
+                            if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
+                            if (index === 0 ) {
+                                url.bytesGzip = Number(response.headers['content-length']) || gzipSize.sync(body);
+                                // url.label += `<br>(${Math.round(url.bytes / 1024 * 10) / 10} KB / ${Math.round(url.bytesGzip / 1024 * 10) / 10} KB)`;
+                                // if (addLabel) url.label += labelAppend;
+                                if ( test === 0 ) {
+                                    testResults.sourceBytesGzip = Number(url.bytesGzip);
                                 }        
-                                if (error) {
-                                    // console.log(error);
-                                    // timesCallback(error);
-                                    url.runResultsGzip.push(0);
-                                    timesCallback();
-                                } else {
-                                    url.runResultsGzip.push(Math.round(response.timingPhases.total));
-                                    timesCallback();
-                                }
-                            });    
-                        } else if (testOptions.http2) {
-                            request(url.url, { ...reqOptions }, (error, response, body) => {
-                                if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
-                                if (error) {
-                                    // console.log(error);
-                                    // timesCallback(error);
-                                    url.runResultsHttp2.push(0);
-                                    timesCallback();
-                                } else {
-                                    url.runResultsHttp2.push(Math.round(response.timingPhases.total));
-                                    timesCallback();
-                                }
-                            });    
-                        } else {
-                            timesCallback();
-                        }
-                    });                
-                // }, 1000);
+                            }        
+                            if (error) {
+                                // console.log(error);
+                                // timesCallback(error);
+                                url.runResultsGzip.push(0);
+                                timesCallback();
+                            } else {
+                                url.runResultsGzip.push(Math.round(response.timingPhases.total));
+                                timesCallback();
+                            }
+                        });    
+                    } else if (testOptions.http2) {
+                        request(url.url, { ...reqOptions }, (error, response, body) => {
+                            if (testOptions.verbose) console.log(Math.round(response.timingPhases.total));
+                            if (error) {
+                                // console.log(error);
+                                // timesCallback(error);
+                                url.runResultsHttp2.push(0);
+                                timesCallback();
+                            } else {
+                                url.runResultsHttp2.push(Math.round(response.timingPhases.total));
+                                timesCallback();
+                            }
+                        });    
+                    } else {
+                        timesCallback();
+                    }
+                });                
             }, function (error) {
                 if (error) {
                     console.log('timesCallback error:', error);

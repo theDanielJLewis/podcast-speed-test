@@ -1,0 +1,121 @@
+{
+    "title": "tap229.mp3",
+    "tests": [
+        {
+            "label": "Anchor (Cloudfront)",
+            "url": "https://anchor.fm/s/b301064/podcast/play/3169651/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fproduction%2F2019-4-7%2F14241309-44100-1-3a2c1b3de487d.mp3"
+        },
+        {
+            "label": "Blubrry",
+            "url": "https://media.blubrry.com/myawesomepodcast/content.blubrry.com/myawesomepodcast/tap229.mp3"
+        },
+        {
+            "label": "Buzzsprout",
+            "url": "https://www.buzzsprout.com/164223/1103234-tap229-for-testing.mp3"
+        },
+        {
+            "label": "Captivate",
+            "url": "https://cdn.captivate.fm/media/68849b4f-f067-432a-a8a5-e37350440f85/tap229.mp3"
+        },
+        {
+            "label": "Castos",
+            "url": "https://episodes.castos.com/myawesomepodcast/tap229.mp3"
+        },
+        {
+            "label": "Fireside",
+            "url": "https://aphid.fireside.fm/d/1437767933/d90d4283-7004-46be-acc5-705d07c3a47f/377dbbe6-de78-4a9f-960d-78cc922322f1.mp3"
+        },
+        {
+            "label": "Libsyn",
+            "url": "https://traffic.libsyn.com/noodlemx/tap229.mp3"
+        },
+        {
+            "label": "Omny Studio",
+            "thanks": "Adam Jaffrey from Wavelength Creative https://wavelengthcreative.com/",
+            "url": "https://traffic.omny.fm/d/clips/53b6fe2a-4ef6-4356-ae92-a61500df6da0/c89b8268-1e01-444f-974f-aa4c016a64c7/8c05b3d3-ad81-47e1-a056-aa4c016ac654/audio.mp3"
+        },
+        {
+            "label": "Pinecast",
+            "url": "https://pinecast.com/listen/3531a723-d54f-4192-88c7-d0ced22fbb51.mp3"
+        },
+        {
+            "label": "Pippa",
+            "url": "https://app.pippa.io/public/streams/5d0bfb6c743c931c4038ebd0/episodes/5d0bfbd73a6bc29b6b83be0c.mp3"
+        },
+        {
+            "label": "Podbean Unlimited Audio",
+            "url": "https://noodlemx.podbean.com/mf/play/ym25nv/tap229.mp3"
+        },
+        {
+            "label": "Podbean Unlimited Plus",
+            "url": "https://theaudacitytopodcastplus.podbean.com/mf/play/z4u4q8/tap229-podbeanplus.mp3"
+        },
+        {
+            "label": "Podbean Business Basic",
+            "url": "https://theaudacitytopodcastbiz.podbean.com/mf/play/n9jbk6/tap229-podbeanbiz.mp3"
+        },
+        {
+            "label": "Podmio (S3)",
+            "thanks": "Podrick Scuadrick", 
+            "url": "https://podmiodotcom.s3.amazonaws.com/danieljlewis/5d0c2595afad0-tap229.mp3"
+        },
+        {
+            "label": "Podserve.fm",
+            "url": "https://www.podserve.fm/episodes/2716/tap229.mp3"
+        },
+        {
+            "label": "Simplecast",
+            "url": "https://cdn.simplecast.com/audio/4e691d/4e691d74-651f-48c2-b522-33bb222458e4/aedfd76b-9264-4753-8137-51e68bc87957/tap229_tc.mp3"
+        },
+        {
+            "label": "SoundCloud",
+            "url": "http://feeds.soundcloud.com/stream/617145513-noodlemx-how-to-get-the-most-from-podcasting-and-social-media-conferences-tap229.mp3"
+        },
+        {
+            "label": "Spreaker",
+            "url": "https://api.spreaker.com/v2/episodes/6413032/download.mp3"
+        },
+        {
+            "label": "Transistor.fm",
+            "thanks": "Podrick Scuadrick",
+            "url": "https://cdn.transistor.fm/file/transistor/m/shows/2782/6ae894fcf9ace8c1dc6095e56487448a.mp3"
+        },
+        {
+            "label": "Audioboom*",
+            "url": "https://audioboom.com/posts/3415147-how-to-get-the-most-from-podcasting-and-social-media-conferences-tap229.mp3"
+        },
+        {
+            "label": "Podiant*",
+            "url": "https://tracking.podiant.co/d/spoke/myawesomepodcast/episodes/3775d34eec0290/primary/1561067415.mp3"
+        },
+        {
+            "label": "podOmatic*",
+            "url": "https://danieljlewis.podomatic.com/enclosure/2019-06-18T20_32_34-07_00.mp3"
+        },
+        {
+            "label": "RedCircle*",
+            "url": "https://api.podcache.net/episodes/430923dd-5c4b-4761-8146-8b2e0430692f/stream.mp3"
+        },
+        {
+            "label": "Whooshka*",
+            "url": "https://media.whooshkaa.com/podcasts/7689/episodes/382585/805cdd/26d030-tap229.mp3"
+        },
+        {
+            "label": "Amazon S3",
+            "url": "https://s3.amazonaws.com/the-audacity-to-podcast/tap229.mp3"
+        },
+        {
+            "label": "Archive.org",
+            "url": "https://archive.org/download/tap229/tap229.mp3"
+        },
+        {
+            "label": "Bunny CDN",
+            "url": "https://noodlemix.b-cdn.net/theaudacitytopodcast/tap229.mp3"
+        },
+        {
+            "label": "SiteGround",
+            "thanks": "Bryan Entzminger from Engaging Missions",
+            "url": "https://engagingmissions.com/tap229.mp3"
+        }
+    ]
+}
