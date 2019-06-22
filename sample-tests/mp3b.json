@@ -2,12 +2,8 @@
     "title": "tap229.mp3",
     "tests": [
         {
-            "label": "Podigee (35.7 MB)",
-            "url": "https://cdn.podigee.com/media/podcast_11897_my_awesome_podcast_episode_1_tap229.m4a?v=1561140091&amp;source=feed"
-        },
-        {
-            "label": "iVoox*",
-            "url": "http://us.ivoox.com/en/tap229_mf_37408947_feed_1.mp3"
+            "label": "Zencast",
+            "url": "https://media.zencast.fm/my-awesome-podcast/0882aae8-4053-4886-9f3c-087fb7c3940c.mp3?source=feed"
         }
     ]
 }
