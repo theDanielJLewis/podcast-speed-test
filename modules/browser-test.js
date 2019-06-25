@@ -6,6 +6,9 @@ const testFolder = './sample-tests/';
 const fs = require('fs');
 var Time = require('time-diff');
 var time = new Time();
+const os = require('os');
+
+const hostname = os.hostname;
 
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
@@ -17,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.get('/', (req,res) => {
     fs.readdir(testFolder, (err, sampleTests) => {
-        res.render('../public/form.ejs', {sampleTests});
+        res.render('../public/form.ejs', {sampleTests, hostname});
       });
 });
 
@@ -134,6 +137,7 @@ function createChart(testOptions, testResults) {
     chart.pageOptions = {
         // title: testOptions.title + ' feed performance',
         // subtitle: '',
+        hostname,
         image: testOptions.image,
         table: testOptions.table,
         ...testOptions
