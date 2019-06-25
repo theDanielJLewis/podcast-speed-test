@@ -159,7 +159,7 @@ function calcMedian(values) {
   
     if (values.length % 2) return values[half];
   
-    return Math.round(values[half - 1] + values[half]) / 2.0);
+    return Math.round((values[half - 1] + values[half]) / 2.0);
 }  
 
 function calcAverage(values) {
