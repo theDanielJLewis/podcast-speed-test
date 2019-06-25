@@ -1,0 +1,17 @@
+{
+    "title": "tap229.mp3",
+    "tests": [
+        {
+            "label": "Podbean Unlimited Audio",
+            "url": "https://mcdn.podbean.com/mf/download/ym25nv/tap229.mp3"
+        },
+        {
+            "label": "Podbean Unlimited Plus",
+            "url": "https://mcdn.podbean.com/mf/download/z4u4q8/tap229-podbeanplus.mp3"
+        },
+        {
+            "label": "Podbean Business Basic",
+            "url": "https://mcdn.podbean.com/mf/download/n9jbk6/tap229-podbeanbiz.mp3"
+        }
+    ]
+}
