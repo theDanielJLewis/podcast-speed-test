@@ -1,0 +1,13 @@
+{
+    "title": "MP3 demo",
+    "tests": [
+        {
+            "label": "Libsyn",
+            "url": "https://traffic.libsyn.com/noodlemx/tap229.mp3"
+        },
+        {
+            "label": "Archive.org",
+            "url": "https://archive.org/download/tap229/tap229.mp3"
+        }
+    ]
+}

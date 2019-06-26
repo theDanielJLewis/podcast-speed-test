@@ -1,0 +1,9 @@
+{
+    "title": "Podcast.co MP3",
+    "tests": [
+        {
+            "label": "Podcast.co",
+            "url": "https://downloads.pod.co/b5d31c54-217d-44d6-9003-904720d5562b/05aee32e-1ea0-4d90-be1b-30e1d8cf65d3.mp3"
+        }
+    ]
+}
