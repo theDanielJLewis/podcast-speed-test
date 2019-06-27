@@ -16,7 +16,7 @@ function runTest(testOptions) {
         }
     
         if (testOptions.jsonTest) {
-            let urlListFile = 'sample-tests/' + testOptions.jsonTest + '.json';
+            let urlListFile = 'tests/' + testOptions.jsonTest + '.json';
             let jsonTest = await jsonfile.readFile(urlListFile);
             testOptions.title = jsonTest.title;
             testOptions.tests = jsonTest.tests;
