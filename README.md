@@ -6,7 +6,7 @@ This script requires Node.js 10.15 or higher. To install:
 
 ```shell
 git clone https://github.com/theDanielJLewis/podcast-speed-test.git
-cd test-feed-speed/
+cd podcast-speed-test/
 npm i
 ```
 
