@@ -16,7 +16,7 @@
     "bottleneck": "^2.19.1",
     "consolidate": "^0.15.1",
     "ejs": "^2.6.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "google-charts": "^2.0.0",
     "gzip-size": "^5.1.1",
     "h2-request": "^1.1.1",
